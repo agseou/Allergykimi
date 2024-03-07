@@ -24,6 +24,12 @@
 		A02FDCA72B99982E00865830 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCA62B99982E00865830 /* BaseCollectionViewCell.swift */; };
 		A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCA82B99984E00865830 /* BaseTableViewCell.swift */; };
 		A02FDCB22B999C6300865830 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB12B999C6300865830 /* Observable.swift */; };
+		A02FDCB42B999DD100865830 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB32B999DD100865830 /* APIManager.swift */; };
+		A02FDCB62B99A01100865830 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB52B99A01000865830 /* Products.swift */; };
+		A02FDCB82B99A02300865830 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB72B99A02300865830 /* Pharmacy.swift */; };
+		A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB92B99A3F100865830 /* DataAPI.swift */; };
+		A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCBB2B99A5E800865830 /* APIKey.swift */; };
+		A02FDCBF2B99AA4F00865830 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = A02FDCBE2B99AA4F00865830 /* SwiftyXMLParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,11 @@
 		A02FDCA62B99982E00865830 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		A02FDCA82B99984E00865830 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		A02FDCB12B999C6300865830 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A02FDCB32B999DD100865830 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A02FDCB52B99A01000865830 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		A02FDCB72B99A02300865830 /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
+		A02FDCB92B99A3F100865830 /* DataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
+		A02FDCBB2B99A5E800865830 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +61,7 @@
 				A02FDCA22B99942100865830 /* Toast in Frameworks */,
 				A02FDC9F2B99940C00865830 /* Alamofire in Frameworks */,
 				A02FDC9C2B9993DF00865830 /* RealmSwift in Frameworks */,
+				A02FDCBF2B99AA4F00865830 /* SwiftyXMLParser in Frameworks */,
 				A02FDC9A2B9993DF00865830 /* Realm in Frameworks */,
 				A02FDC972B99935000865830 /* Kingfisher in Frameworks */,
 				A02FDC942B9991E100865830 /* SnapKit in Frameworks */,
@@ -107,6 +119,9 @@
 		A02FDCAA2B99997A00865830 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A02FDCB32B999DD100865830 /* APIManager.swift */,
+				A02FDCB92B99A3F100865830 /* DataAPI.swift */,
+				A02FDCBB2B99A5E800865830 /* APIKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -114,6 +129,8 @@
 		A02FDCAB2B99998100865830 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A02FDCB52B99A01000865830 /* Products.swift */,
+				A02FDCB72B99A02300865830 /* Pharmacy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 				A02FDC9B2B9993DF00865830 /* RealmSwift */,
 				A02FDC9E2B99940C00865830 /* Alamofire */,
 				A02FDCA12B99942100865830 /* Toast */,
+				A02FDCBE2B99AA4F00865830 /* SwiftyXMLParser */,
 			);
 			productName = Allergykimi;
 			productReference = A02FDC762B99835500865830 /* Allergykimi.app */;
@@ -208,6 +226,7 @@
 				A02FDC982B9993DF00865830 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				A02FDC9D2B99940C00865830 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A02FDCA02B99942100865830 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				A02FDCBD2B99AA4F00865830 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */,
 			);
 			productRefGroup = A02FDC772B99835500865830 /* Products */;
 			projectDirPath = "";
@@ -237,12 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02FDCB62B99A01100865830 /* Products.swift in Sources */,
+				A02FDCB42B999DD100865830 /* APIManager.swift in Sources */,
 				A02FDCA72B99982E00865830 /* BaseCollectionViewCell.swift in Sources */,
+				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,
 				A02FDCB22B999C6300865830 /* Observable.swift in Sources */,
+				A02FDCB82B99A02300865830 /* Pharmacy.swift in Sources */,
 				A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
+				A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */,
 				A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +542,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		A02FDCBD2B99AA4F00865830 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yahoojapan/SwiftyXMLParser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -550,6 +582,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A02FDCA02B99942100865830 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		A02FDCBE2B99AA4F00865830 /* SwiftyXMLParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A02FDCBD2B99AA4F00865830 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */;
+			productName = SwiftyXMLParser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
