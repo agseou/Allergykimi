@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Products
-struct Products {
+struct Products: Decodable {
     let body: Body
 }
 
@@ -35,7 +35,7 @@ struct ItemInfo: Decodable {
     let prdlstNm: String
     let imgurl2: String
     let imgurl1: String
-    let productGB: String
+    let productGb: String
     let prdlstReportNo: String
     let allergy: String
     let nutrient: String?

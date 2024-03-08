@@ -96,6 +96,7 @@
 				A02FDCAB2B99998100865830 /* Model */,
 				A02FDCA32B9997D000865830 /* Base */,
 				A02FDCAF2B999A6800865830 /* Components */,
+				A02FDCC02B99AAEA00865830 /* Test */,
 				A02FDCAD2B9999C300865830 /* Home */,
 				A02FDCAA2B99997A00865830 /* Network */,
 				A02FDC7F2B99835500865830 /* Main.storyboard */,
@@ -147,7 +148,6 @@
 		A02FDCAD2B9999C300865830 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A02FDC7D2B99835500865830 /* ViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -165,6 +165,14 @@
 				A02FDCB12B999C6300865830 /* Observable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A02FDCC02B99AAEA00865830 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				A02FDC7D2B99835500865830 /* ViewController.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

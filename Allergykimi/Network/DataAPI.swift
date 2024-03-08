@@ -22,10 +22,14 @@ enum DataAPI {
         case .Products:
             return URL(string: baseURL + "B553748/CertImgListServiceV3/getCertImgListServiceV3")!
         case .Pharmacy:
-            return URL(string: baseURL + "B552657/ErmctInsttInfoInqireService")!
+            return URL(string: baseURL + "B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire")!
         }
     }
    
+    var header: HTTPHeaders {
+           return ["accept": "*/*"]
+       }
+    
     var method: HTTPMethod {
         return .get
     }
