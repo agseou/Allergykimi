@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
 		A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC792B99835500865830 /* AppDelegate.swift */; };
 		A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7B2B99835500865830 /* SceneDelegate.swift */; };
 		A02FDC7E2B99835500865830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7D2B99835500865830 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.release.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.release.xcconfig"; sourceTree = "<group>"; };
 		A02FDC762B99835500865830 /* Allergykimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allergykimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02FDC792B99835500865830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A02FDC7B2B99835500865830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		A02FDCB72B99A02300865830 /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		A02FDCB92B99A3F100865830 /* DataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
 		A02FDCBB2B99A5E800865830 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.debug.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.debug.xcconfig"; sourceTree = "<group>"; };
+		F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allergykimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,18 +69,38 @@
 				A02FDC9A2B9993DF00865830 /* Realm in Frameworks */,
 				A02FDC972B99935000865830 /* Kingfisher in Frameworks */,
 				A02FDC942B9991E100865830 /* SnapKit in Frameworks */,
+				05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46921015F21820B89F3ACDF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63E6F769D8C8265EB7DC8088 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */,
+				42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A02FDC6D2B99835500865830 = {
 			isa = PBXGroup;
 			children = (
 				A02FDC8D2B99860000865830 /* .gitignore */,
 				A02FDC782B99835500865830 /* Allergykimi */,
 				A02FDC772B99835500865830 /* Products */,
+				63E6F769D8C8265EB7DC8088 /* Pods */,
+				46921015F21820B89F3ACDF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A02FDC8A2B99835800865830 /* Build configuration list for PBXNativeTarget "Allergykimi" */;
 			buildPhases = (
+				738A9060473B8E95B704B3E7 /* [CP] Check Pods Manifest.lock */,
 				A02FDC722B99835500865830 /* Sources */,
 				A02FDC732B99835500865830 /* Frameworks */,
 				A02FDC742B99835500865830 /* Resources */,
+				14C5A27F4E3727F516D54EF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +284,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14C5A27F4E3727F516D54EF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Allergykimi/Pods-Allergykimi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Allergykimi/Pods-Allergykimi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Allergykimi/Pods-Allergykimi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		738A9060473B8E95B704B3E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Allergykimi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A02FDC722B99835500865830 /* Sources */ = {
@@ -338,7 +406,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -401,7 +469,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -422,6 +490,7 @@
 		};
 		A02FDC8B2B99835800865830 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -455,6 +524,7 @@
 		};
 		A02FDC8C2B99835800865830 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
