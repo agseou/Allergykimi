@@ -11,7 +11,7 @@ class CustomTabBarController: UITabBarController {
     
     let homeNavController = UINavigationController(rootViewController: HomeViewController())
     let mapNavController = UINavigationController(rootViewController: ViewController())
-    let myPageNavController = UINavigationController(rootViewController: ViewController())
+    let myPageNavController = UINavigationController(rootViewController: MyPageViewController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
