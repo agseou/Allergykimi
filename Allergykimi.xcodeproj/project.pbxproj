@@ -31,6 +31,8 @@
 		A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCB92B99A3F100865830 /* DataAPI.swift */; };
 		A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCBB2B99A5E800865830 /* APIKey.swift */; };
 		A02FDCBF2B99AA4F00865830 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = A02FDCBE2B99AA4F00865830 /* SwiftyXMLParser */; };
+		A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093606E2B9EECF400BF2E62 /* HomeViewController.swift */; };
+		A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		A02FDCB72B99A02300865830 /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		A02FDCB92B99A3F100865830 /* DataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
 		A02FDCBB2B99A5E800865830 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		A093606E2B9EECF400BF2E62 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.debug.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.debug.xcconfig"; sourceTree = "<group>"; };
 		F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allergykimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,7 +123,7 @@
 				A02FDCAC2B99998800865830 /* App */,
 				A02FDCAB2B99998100865830 /* Model */,
 				A02FDCA32B9997D000865830 /* Base */,
-				A02FDCAF2B999A6800865830 /* Components */,
+				A09360712B9EF54E00BF2E62 /* Components */,
 				A02FDCC02B99AAEA00865830 /* Test */,
 				A02FDCAD2B9999C300865830 /* Home */,
 				A02FDCAA2B99997A00865830 /* Network */,
@@ -172,15 +176,9 @@
 		A02FDCAD2B9999C300865830 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A093606E2B9EECF400BF2E62 /* HomeViewController.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		A02FDCAF2B999A6800865830 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		A02FDCB02B999C5A00865830 /* Protocol */ = {
@@ -197,6 +195,14 @@
 				A02FDC7D2B99835500865830 /* ViewController.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		A09360712B9EF54E00BF2E62 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,8 +343,10 @@
 				A02FDCA72B99982E00865830 /* BaseCollectionViewCell.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
+				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,
 				A02FDCB22B999C6300865830 /* Observable.swift in Sources */,
+				A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */,
 				A02FDCB82B99A02300865830 /* Pharmacy.swift in Sources */,
 				A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
