@@ -32,6 +32,8 @@
 		A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDCBB2B99A5E800865830 /* APIKey.swift */; };
 		A02FDCBF2B99AA4F00865830 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = A02FDCBE2B99AA4F00865830 /* SwiftyXMLParser */; };
 		A04D75AA2B9F5A0D00F660A7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */; };
+		A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F02BA014AB00824C4F /* SearchViewModel.swift */; };
+		A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */; };
 		A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093606E2B9EECF400BF2E62 /* HomeViewController.swift */; };
 		A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */; };
 		A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */; };
@@ -60,6 +62,8 @@
 		A02FDCB92B99A3F100865830 /* DataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAPI.swift; sourceTree = "<group>"; };
 		A02FDCBB2B99A5E800865830 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A08D57F02BA014AB00824C4F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A093606E2B9EECF400BF2E62 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -211,9 +215,19 @@
 		A04D75A82B9F59F400F660A7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				A08D57F22BA01F2100824C4F /* Cell */,
 				A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */,
+				A08D57F02BA014AB00824C4F /* SearchViewModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		A08D57F22BA01F2100824C4F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A09360712B9EF54E00BF2E62 /* Components */ = {
@@ -370,6 +384,7 @@
 				A02FDCB42B999DD100865830 /* APIManager.swift in Sources */,
 				A02FDCA72B99982E00865830 /* BaseCollectionViewCell.swift in Sources */,
 				A093607A2B9F039A00BF2E62 /* BaseView.swift in Sources */,
+				A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
@@ -381,6 +396,7 @@
 				A04D75AA2B9F5A0D00F660A7 /* SearchViewController.swift in Sources */,
 				A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */,
 				A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */,
+				A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
 				A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */,
 				A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */,

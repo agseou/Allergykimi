@@ -21,12 +21,12 @@ struct Body: Decodable {
 }
 
 // MARK: - ItemElement
-struct Item: Decodable {
+struct Item: Decodable, Hashable {
     let item: ItemInfo
 }
 
 // MARK: - ItemItem
-struct ItemInfo: Decodable {
+struct ItemInfo: Decodable, Hashable {
     let prdkindstate: String
     let manufacture: String
     let rnum: String
