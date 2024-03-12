@@ -34,6 +34,7 @@
 		A04D75AA2B9F5A0D00F660A7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */; };
 		A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F02BA014AB00824C4F /* SearchViewModel.swift */; };
 		A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */; };
+		A08D57F62BA04EF000824C4F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */; };
 		A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093606E2B9EECF400BF2E62 /* HomeViewController.swift */; };
 		A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */; };
 		A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */; };
@@ -64,6 +65,7 @@
 		A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A08D57F02BA014AB00824C4F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		A093606E2B9EECF400BF2E62 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				A08D57F22BA01F2100824C4F /* Cell */,
 				A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */,
+				A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */,
 				A08D57F02BA014AB00824C4F /* SearchViewModel.swift */,
 			);
 			path = Search;
@@ -382,6 +385,7 @@
 			files = (
 				A02FDCB62B99A01100865830 /* Products.swift in Sources */,
 				A02FDCB42B999DD100865830 /* APIManager.swift in Sources */,
+				A08D57F62BA04EF000824C4F /* ProductDetailViewController.swift in Sources */,
 				A02FDCA72B99982E00865830 /* BaseCollectionViewCell.swift in Sources */,
 				A093607A2B9F039A00BF2E62 /* BaseView.swift in Sources */,
 				A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */,

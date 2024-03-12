@@ -18,6 +18,7 @@ final class SearchViewController: BaseViewController {
     private let searchController = UISearchController()
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        view.delegate = self
         return view
     }()
     
@@ -97,5 +98,14 @@ final class SearchViewController: BaseViewController {
             return section
         }
         return layout
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ProductDetailViewController()
+        vc.productData = list[indexPath.item].item
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
