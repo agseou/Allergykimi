@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
+		A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */; };
 		A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC792B99835500865830 /* AppDelegate.swift */; };
 		A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7B2B99835500865830 /* SceneDelegate.swift */; };
 		A02FDC7E2B99835500865830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7D2B99835500865830 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.release.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.release.xcconfig"; sourceTree = "<group>"; };
+		A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		A02FDC762B99835500865830 /* Allergykimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allergykimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02FDC792B99835500865830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A02FDC7B2B99835500865830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A020B2232BA16EB3002B4C89 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A02FDC6D2B99835500865830 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		A02FDC782B99835500865830 /* Allergykimi */ = {
 			isa = PBXGroup;
 			children = (
+				A020B2232BA16EB3002B4C89 /* Extension */,
 				A02FDCB02B999C5A00865830 /* Protocol */,
 				A02FDCAC2B99998800865830 /* App */,
 				A02FDCAB2B99998100865830 /* Model */,
@@ -393,6 +404,7 @@
 				A08D57F92BA05C4300824C4F /* Allergy.swift in Sources */,
 				A093607A2B9F039A00BF2E62 /* BaseView.swift in Sources */,
 				A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */,
+				A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
