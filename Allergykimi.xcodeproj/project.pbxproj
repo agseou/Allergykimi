@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
 		A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */; };
+		A020B2292BA17591002B4C89 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2282BA17591002B4C89 /* OnboardingViewController.swift */; };
+		A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */; };
+		A020B22E2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */; };
 		A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC792B99835500865830 /* AppDelegate.swift */; };
 		A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7B2B99835500865830 /* SceneDelegate.swift */; };
 		A02FDC7E2B99835500865830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7D2B99835500865830 /* ViewController.swift */; };
@@ -47,6 +51,10 @@
 /* Begin PBXFileReference section */
 		42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.release.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.release.xcconfig"; sourceTree = "<group>"; };
 		A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		A020B2282BA17591002B4C89 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAllergyViewController.swift; sourceTree = "<group>"; };
+		A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		A02FDC762B99835500865830 /* Allergykimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allergykimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02FDC792B99835500865830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A02FDC7B2B99835500865830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +131,36 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		A020B2262BA174CD002B4C89 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A020B22A2BA176F2002B4C89 /* Register */,
+				A020B2282BA17591002B4C89 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A020B2272BA174E5002B4C89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A02FDCC02B99AAEA00865830 /* Test */,
+				A020B2262BA174CD002B4C89 /* Onboarding */,
+				A02FDCAD2B9999C300865830 /* Home */,
+				A04D75A82B9F59F400F660A7 /* Search */,
+				A09360742B9EFA0D00BF2E62 /* MyPage */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A020B22A2BA176F2002B4C89 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */,
+				A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		A02FDC6D2B99835500865830 = {
 			isa = PBXGroup;
 			children = (
@@ -148,13 +186,10 @@
 				A020B2232BA16EB3002B4C89 /* Extension */,
 				A02FDCB02B999C5A00865830 /* Protocol */,
 				A02FDCAC2B99998800865830 /* App */,
+				A020B2272BA174E5002B4C89 /* Views */,
 				A02FDCAB2B99998100865830 /* Model */,
 				A02FDCA32B9997D000865830 /* Base */,
 				A09360712B9EF54E00BF2E62 /* Components */,
-				A02FDCC02B99AAEA00865830 /* Test */,
-				A02FDCAD2B9999C300865830 /* Home */,
-				A04D75A82B9F59F400F660A7 /* Search */,
-				A09360742B9EFA0D00BF2E62 /* MyPage */,
 				A02FDCAA2B99997A00865830 /* Network */,
 				A02FDC7F2B99835500865830 /* Main.storyboard */,
 				A02FDC822B99835800865830 /* Assets.xcassets */,
@@ -216,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				A02FDCB12B999C6300865830 /* Observable.swift */,
+				A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -409,6 +445,8 @@
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,
+				A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */,
+				A020B22E2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				A02FDCB22B999C6300865830 /* Observable.swift in Sources */,
 				A09360782B9F02B800BF2E62 /* ProfileView.swift in Sources */,
 				A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */,
@@ -416,7 +454,9 @@
 				A04D75AA2B9F5A0D00F660A7 /* SearchViewController.swift in Sources */,
 				A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */,
 				A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */,
+				A020B2292BA17591002B4C89 /* OnboardingViewController.swift in Sources */,
 				A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */,
+				A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
 				A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */,
 				A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */,
