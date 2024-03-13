@@ -34,7 +34,7 @@ class TagCollectionViewCell: BaseCollectionViewCell {
         }
         tagLabel.snp.makeConstraints {
             $0.centerY.equalTo(contentView)
-            $0.leading.equalTo(iconLabel.snp.trailing).offset(10)
+            $0.leading.equalTo(iconLabel.snp.trailing).offset(4)
             $0.trailing.equalTo(contentView).inset(10)
         }
     }

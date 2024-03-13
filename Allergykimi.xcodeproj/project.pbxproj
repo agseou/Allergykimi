@@ -143,6 +143,7 @@
 		A020B2272BA174E5002B4C89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A020B2312BA1A942002B4C89 /* TabBar */,
 				A02FDCC02B99AAEA00865830 /* Test */,
 				A020B2262BA174CD002B4C89 /* Onboarding */,
 				A02FDCAD2B9999C300865830 /* Home */,
@@ -159,6 +160,14 @@
 				A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		A020B2312BA1A942002B4C89 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		A02FDC6D2B99835500865830 = {
@@ -183,14 +192,13 @@
 		A02FDC782B99835500865830 /* Allergykimi */ = {
 			isa = PBXGroup;
 			children = (
-				A020B2232BA16EB3002B4C89 /* Extension */,
-				A02FDCB02B999C5A00865830 /* Protocol */,
 				A02FDCAC2B99998800865830 /* App */,
-				A020B2272BA174E5002B4C89 /* Views */,
-				A02FDCAB2B99998100865830 /* Model */,
 				A02FDCA32B9997D000865830 /* Base */,
-				A09360712B9EF54E00BF2E62 /* Components */,
+				A020B2232BA16EB3002B4C89 /* Extension */,
+				A02FDCAB2B99998100865830 /* Model */,
+				A020B2272BA174E5002B4C89 /* Views */,
 				A02FDCAA2B99997A00865830 /* Network */,
+				A02FDCB02B999C5A00865830 /* Protocol */,
 				A02FDC7F2B99835500865830 /* Main.storyboard */,
 				A02FDC822B99835800865830 /* Assets.xcassets */,
 				A02FDC842B99835800865830 /* LaunchScreen.storyboard */,
@@ -281,14 +289,6 @@
 				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		A09360712B9EF54E00BF2E62 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				A09360722B9EF56600BF2E62 /* CustomTabBarController.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		A09360742B9EFA0D00BF2E62 /* MyPage */ = {

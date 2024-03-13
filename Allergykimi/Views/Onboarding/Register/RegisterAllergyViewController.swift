@@ -24,6 +24,9 @@ class RegisterAllergyViewController: BaseViewController {
         btn.configuration = config
         return btn
     }()
+    var list: [Allergy] = [] {
+        didSet { collectionView.reloadData() }
+    }
     
     override func configureHierarchy() {
         view.addSubview(contentLabel)
@@ -73,11 +76,21 @@ extension RegisterAllergyViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as! TagCollectionViewCell
         
-        
-        cell.iconLabel.text = Allergy.allCases[indexPath.row].icon
-        cell.tagLabel.text = "\(Allergy.allCases[indexPath.row])"
+        let data = Allergy.allCases[indexPath.row]
+        cell.iconLabel.text = data.icon
+        cell.tagLabel.text = data.rawValue
+        cell.contentView.backgroundColor = list.contains(data) ? .blue : .white
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = Allergy.allCases[indexPath.row]
+        if list.contains(data) {
+            list.remove(at: list.firstIndex(of: data)!)
+        } else {
+            list.append(data)
+        }
     }
     
 }

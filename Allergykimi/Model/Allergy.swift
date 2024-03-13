@@ -7,75 +7,75 @@
 
 import Foundation
 
-enum Allergy: CaseIterable {
-    case 새우
-    case 굴
-    case 게
-    case 홍합
-    case 오징어
-    case 전복
-    case 고등어
-    case 조개류
-    case 메밀
-    case 밀
-    case 대두
-    case 호두
-    case 땅콩
-    case 잣
-    case 알류
-    case 우유
-    case 쇠고기
-    case 돼지고기
-    case 닭고기
-    case 복숭아
-    case 토마토
-    case 아황산류
+enum Allergy: String, CaseIterable {
+    case shrimp = "새우"
+    case crab = "게"
+    case squid = "오징어"
+    case mackerel = "고등어"
+    case shellfish = "조개류"
+    case oyster = "굴"
+    case abalone = "전복"
+    case mussel = "홍합"
+    case buckWheat = "메밀"
+    case wheat = "밀"
+    case soybean = "대두"
+    case walnut = "호두"
+    case peanut = "땅콩"
+    case pineNut = "잣"
+    case eggs = "계란"
+    case milk = "우유"
+    case beef = "쇠고기"
+    case pork = "돼지고기"
+    case chicken = "닭고기"
+    case peaches = "복숭아"
+    case tomatoes = "토마토"
+    case sulfurousAcids = "아황산류"
     
     var icon: String {
         switch self {
-        case .새우:
+        case .shrimp:
             "🦐"
-        case .굴:
-            "🦪"
-        case .게:
+        case .crab:
             "🦀"
-        case .홍합:
-            "🦪"
-        case .오징어:
+        case .squid:
             "🦑"
-        case .전복:
-            ""
-        case .고등어:
+        case .mackerel:
             "🐟"
-        case .조개류:
-            ""
-        case .메밀:
+        case .shellfish:
+            "🐚"
+        case .oyster:
+            "🦪"
+        case .abalone:
+            "🦪"
+        case .mussel:
+            "🦪"
+        case .buckWheat:
+            "🫘"
+        case .wheat:
             "🌾"
-        case .밀:
-            "🌾"
-        case .대두:
-            ""
-        case .호두:
-            ""
-        case .땅콩:
+        case .soybean:
+            "🫛"
+        case .walnut:
+            "🧠"
+        case .peanut:
             "🥜"
-        case .잣:
-            "🦴🦴"
-        case .알류:
+        case .pineNut:
+            "🫘"
+        case .eggs:
             "🥚"
-        case .우유:
+        case .milk:
             "🥛"
-        case .쇠고기:
+        case .beef:
             "🐮"
-        case .돼지고기:
+        case .pork:
             "🐷"
-        case .닭고기:
+        case .chicken:
             "🐔"
-        case .복숭아:
+        case .peaches:
             "🍑"
-        case .토마토:
+        case .tomatoes:
             "🍅"
-        case .아황산류:
+        case .sulfurousAcids:
             "🍷"
         }
     }
