@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Allergy: String, CaseIterable {
+enum Allergy: String, CaseIterable, Codable {
     case shrimp = "새우"
     case crab = "게"
     case squid = "오징어"

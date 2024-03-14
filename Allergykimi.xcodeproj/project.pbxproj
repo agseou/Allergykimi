@@ -13,6 +13,7 @@
 		A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */; };
 		A020B22E2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */; };
+		A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2352BA32D0E002B4C89 /* UserDefaultsManager.swift */; };
 		A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC792B99835500865830 /* AppDelegate.swift */; };
 		A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7B2B99835500865830 /* SceneDelegate.swift */; };
 		A02FDC7E2B99835500865830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7D2B99835500865830 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAllergyViewController.swift; sourceTree = "<group>"; };
 		A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		A020B22F2BA1894C002B4C89 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		A020B2352BA32D0E002B4C89 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		A02FDC762B99835500865830 /* Allergykimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allergykimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02FDC792B99835500865830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A02FDC7B2B99835500865830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		A020B2342BA32BAB002B4C89 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A020B2352BA32D0E002B4C89 /* UserDefaultsManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A02FDC6D2B99835500865830 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 				A02FDCAB2B99998100865830 /* Model */,
 				A020B2272BA174E5002B4C89 /* Views */,
 				A02FDCAA2B99997A00865830 /* Network */,
+				A020B2342BA32BAB002B4C89 /* Services */,
 				A02FDCB02B999C5A00865830 /* Protocol */,
 				A02FDC7F2B99835500865830 /* Main.storyboard */,
 				A02FDC822B99835800865830 /* Assets.xcassets */,
@@ -443,6 +454,7 @@
 				A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
+				A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,
 				A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */,

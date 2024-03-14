@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        
+        print(UserDefaultsManager.shared.myAllergies)
         searchBar.delegate = self
         searchBar.placeholder = "식품을 검색하세요!"
         searchBar.searchBarStyle = .minimal

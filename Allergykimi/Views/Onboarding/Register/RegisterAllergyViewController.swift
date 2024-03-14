@@ -82,6 +82,7 @@ class RegisterAllergyViewController: BaseViewController {
         let vc = CustomTabBarController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true) {
+            UserDefaultsManager.shared.myAllergies = self.list
             self.navigationController?.popViewController(animated: true)
         }
     }
