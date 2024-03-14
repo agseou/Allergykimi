@@ -35,6 +35,7 @@ extension HomeViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let vc = SearchViewController()
+        //vc.navigationItem.searchController?
         navigationController?.pushViewController(vc, animated: true)
     }
 }

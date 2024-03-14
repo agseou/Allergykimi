@@ -27,9 +27,11 @@ class RegisterAllergyViewController: BaseViewController {
     var list: [Allergy] = [] {
         didSet { collectionView.reloadData() }
     }
+    var infoLabel = UILabel()
     
     override func configureHierarchy() {
         view.addSubview(contentLabel)
+        view.addSubview(infoLabel)
         view.addSubview(collectionView)
         view.addSubview(nextBtn)
     }
@@ -40,6 +42,10 @@ class RegisterAllergyViewController: BaseViewController {
         contentLabel.text = "나의 알러지 정보를\n등록해주세요"
         contentLabel.numberOfLines = 0
         contentLabel.font = .systemFont(ofSize: 30, weight: .bold)
+        
+        infoLabel.text = "\(list.count)개의 알러지를 선택했어요!"
+        
+        nextBtn.addTarget(self, action: #selector(tapNextBtn), for: .touchUpInside)
     }
     
     override func setConstraints() {
@@ -47,12 +53,17 @@ class RegisterAllergyViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
         }
+        infoLabel.snp.makeConstraints {
+            $0.top.equalTo(contentLabel.snp.bottom).offset(5)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+        }
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(20)
+            $0.top.equalTo(infoLabel.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
         nextBtn.snp.makeConstraints {
             $0.top.equalTo(collectionView.snp.bottom).offset(20)
+            $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
@@ -66,6 +77,14 @@ class RegisterAllergyViewController: BaseViewController {
         layout.sectionInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         return layout
     }
+    
+    @objc private func tapNextBtn() {
+        let vc = CustomTabBarController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 }
 
 extension RegisterAllergyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -77,9 +96,7 @@ extension RegisterAllergyViewController: UICollectionViewDelegate, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as! TagCollectionViewCell
         
         let data = Allergy.allCases[indexPath.row]
-        cell.iconLabel.text = data.icon
-        cell.tagLabel.text = data.rawValue
-        cell.contentView.backgroundColor = list.contains(data) ? .blue : .white
+        cell.updateUI(data: data, list: list)
         
         return cell
     }
@@ -91,6 +108,7 @@ extension RegisterAllergyViewController: UICollectionViewDelegate, UICollectionV
         } else {
             list.append(data)
         }
+        infoLabel.text = "\(list.count)개의 알러지를 선택했어요!"
     }
     
 }

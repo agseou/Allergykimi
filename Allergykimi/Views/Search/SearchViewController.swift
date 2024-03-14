@@ -15,7 +15,7 @@ final class SearchViewController: BaseViewController {
     }
     
     let viewModel = SearchViewModel()
-    private let searchController = UISearchController()
+    let searchBar = UISearchBar()
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.delegate = self
@@ -61,19 +61,19 @@ final class SearchViewController: BaseViewController {
     }
     
     override func configureHierarchy() {
-        navigationItem.searchController = searchController
+        navigationItem.titleView = searchBar
         view.addSubview(collectionView)
         
     }
     
     @objc private func editSearchController() {
-        viewModel.inputViewDidLoadTrigger.value = searchController.searchBar.text
+        viewModel.inputViewDidLoadTrigger.value = searchBar.text
     }
     
     override func configureView() {
         super.configureView()
         
-        searchController.searchBar.searchTextField.addTarget(self, action: #selector(editSearchController), for: .editingChanged)
+        searchBar.searchTextField.addTarget(self, action: #selector(editSearchController), for: .editingChanged)
     }
     
     override func setConstraints() {
@@ -91,9 +91,8 @@ final class SearchViewController: BaseViewController {
                                                    heightDimension: .fractionalHeight(1.0 / 3.0))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
-            // 섹션을 설정합니다.
             let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0) // 섹션의 contentInsets를 설정합니다.
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
             
             return section
         }

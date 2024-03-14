@@ -21,7 +21,7 @@ class TagCollectionViewCell: BaseCollectionViewCell {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
         contentView.layer.shadowOpacity = 0.2
-        contentView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 5)
         contentView.layer.shadowColor = UIColor.gray.cgColor
         
         tagLabel.textAlignment = .center
@@ -37,5 +37,12 @@ class TagCollectionViewCell: BaseCollectionViewCell {
             $0.leading.equalTo(iconLabel.snp.trailing).offset(4)
             $0.trailing.equalTo(contentView).inset(10)
         }
+    }
+    
+    func updateUI(data: Allergy, list: [Allergy]) {
+        iconLabel.text = data.icon
+        tagLabel.text = data.rawValue
+        contentView.backgroundColor = list.contains(data) ? .accent : .white
+        tagLabel.textColor = list.contains(data) ? .white : .black
     }
 }

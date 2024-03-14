@@ -21,7 +21,6 @@ final class MyPageViewController: BaseViewController {
     override func configureView() {
         super.configureView()
         
-        profileView.backgroundColor = .blue
     }
     
     override func setConstraints() {
