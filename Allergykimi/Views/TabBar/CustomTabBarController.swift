@@ -30,7 +30,7 @@ class CustomTabBarController: UITabBarController {
         myPageNavController.tabBarItem = myPageTabBarItem
         
         self.viewControllers = [mapNavController, homeNavController, myPageNavController]
-        
+        self.selectedIndex = 1
     }
     
     
