@@ -10,52 +10,83 @@ import Kingfisher
 
 final class ProductDetailViewController: BaseViewController {
     
+    enum Section: Int, CaseIterable {
+        case main
+    }
+    
     var productData: ItemInfo!
     
-    private var productImageScrollView = UIScrollView()
-    private var productImagePageControl = UIPageControl()
-    private var productImageURLs: [String] = []
+    private lazy var productImagesCollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        return view
+    }()
+    private var dataSource: UICollectionViewDiffableDataSource<Section, String>!
+    private var imageURLList: [String] = []
     private var allergyList: [Allergy] = []
     private let productName = UILabel()
     private let allergyLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        imageURLList.append(productData.imgurl1)
+        imageURLList.append(productData.imgurl2)
+        
+        configureDataSource()
+        updateSnapshot()
         allergyList = productData.allergy.findMatchingAllergies()
     }
     
+    private func updateSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(imageURLList)
+        dataSource.apply(snapshot) // reloadData
+    }
+    
+    private func configureDataSource() {
+        
+        let cellResitration = UICollectionView.CellRegistration<PagingProductImageCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+            cell.updateUI(url: itemIdentifier)
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: productImagesCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            
+            if let section = Section(rawValue: indexPath.section) {
+                switch section {
+                case .main:
+                    let cell = collectionView.dequeueConfiguredReusableCell(using: cellResitration, for: indexPath, item: itemIdentifier)
+                    
+                    return cell
+                }
+            } else {
+                return nil
+            }
+        })
+        
+    }
+    
     override func configureHierarchy() {
-        view.addSubview(productImageScrollView)
-        view.addSubview(productImagePageControl)
+        view.addSubview(productImagesCollectionView)
         view.addSubview(productName)
         view.addSubview(allergyLabel)
     }
     
     override func configureView() {
         super.configureView()
-        productImageScrollView.isPagingEnabled = true
-        productImageScrollView.showsHorizontalScrollIndicator = true
-        productImageScrollView.delegate = self
         
         productName.text = productData.prdlstNm
         
         allergyLabel.text = productData.allergy.findMatchingAllergiesString()
         
-        setupURLsToImages()
     }
     
     override func setConstraints() {
-        productImageScrollView.snp.makeConstraints {
+        productImagesCollectionView.snp.makeConstraints {
             $0.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(150)
-        }
-        productImagePageControl.snp.makeConstraints {
-            $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(productImageScrollView.snp.bottom).offset(10)
+            $0.height.equalTo(200)
         }
         productName.snp.makeConstraints {
-            $0.top.equalTo(productImageScrollView.snp.bottom).offset(20)
+            $0.top.equalTo(productImagesCollectionView.snp.bottom).offset(20)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         allergyLabel.snp.makeConstraints {
@@ -64,35 +95,21 @@ final class ProductDetailViewController: BaseViewController {
         }
     }
     
-    func setupURLsToImages() {
-        productImageURLs.append(productData.imgurl1)
-        productImageURLs.append(productData.imgurl2)
-        productImagePageControl.numberOfPages = productImageURLs.count
-        
-        for (index, urlString) in productImageURLs.enumerated() {
-            guard let url = URL(string: urlString) else { continue }
-            let imageView = UIImageView()
-            imageView.kf.setImage(with: url)
-            imageView.contentMode = .scaleAspectFit
-            productImageScrollView.addSubview(imageView)
+    private func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-            imageView.snp.makeConstraints { make in
-                make.width.equalTo(productImageScrollView)
-                make.height.equalTo(productImageScrollView)
-                make.top.bottom.equalTo(productImageScrollView)
-                make.leading.equalTo(productImageScrollView.snp.leading).offset(view.frame.size.width * CGFloat(index))
-            }
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .fractionalHeight(1.0))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .paging
+            
+            return section
         }
-        
-        productImageScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(productImageURLs.count), height: 150)
+        return layout
     }
-}
-
-extension ProductDetailViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIdx = round(scrollView.contentOffset.x / view.frame.width)
-        productImagePageControl.currentPage = Int(pageIdx)
-    }
-    
 }

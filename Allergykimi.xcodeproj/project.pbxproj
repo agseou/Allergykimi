@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
 		A00532BF2BA3E922002548DA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00532BE2BA3E922002548DA /* String+Extension.swift */; };
+		A00532C12BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00532C02BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift */; };
 		A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */; };
 		A020B2292BA17591002B4C89 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2282BA17591002B4C89 /* OnboardingViewController.swift */; };
 		A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		42748818B3109C253A9921D1 /* Pods-Allergykimi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.release.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.release.xcconfig"; sourceTree = "<group>"; };
 		A00532BE2BA3E922002548DA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A00532C02BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingProductImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		A020B2282BA17591002B4C89 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAllergyViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
+				A00532C02BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
+				A00532C12BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift in Sources */,
 				A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,

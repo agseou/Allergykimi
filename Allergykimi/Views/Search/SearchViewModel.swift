@@ -20,6 +20,7 @@ class SearchViewModel {
     }
     
     private func fetchData(text: String) {
+        guard !text.isEmpty else { return }
         APIManager.shared.request(type: Products.self, api: .Products(query: text)) { data in
             self.outputData.value = data.body.items
         }
