@@ -18,7 +18,6 @@
 		A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2352BA32D0E002B4C89 /* UserDefaultsManager.swift */; };
 		A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC792B99835500865830 /* AppDelegate.swift */; };
 		A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7B2B99835500865830 /* SceneDelegate.swift */; };
-		A02FDC7E2B99835500865830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDC7D2B99835500865830 /* ViewController.swift */; };
 		A02FDC812B99835500865830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02FDC7F2B99835500865830 /* Main.storyboard */; };
 		A02FDC832B99835800865830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02FDC822B99835800865830 /* Assets.xcassets */; };
 		A02FDC862B99835800865830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A02FDC842B99835800865830 /* LaunchScreen.storyboard */; };
@@ -49,6 +48,7 @@
 		A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */; };
 		A09360782B9F02B800BF2E62 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360772B9F02B800BF2E62 /* ProfileView.swift */; };
 		A093607A2B9F039A00BF2E62 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360792B9F039A00BF2E62 /* BaseView.swift */; };
+		A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF695C2BA7348000FB551B /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,6 @@
 		A02FDC762B99835500865830 /* Allergykimi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allergykimi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02FDC792B99835500865830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A02FDC7B2B99835500865830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A02FDC7D2B99835500865830 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A02FDC802B99835500865830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A02FDC822B99835800865830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A02FDC852B99835800865830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		A09360752B9EFA2800BF2E62 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A09360772B9F02B800BF2E62 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A09360792B9F039A00BF2E62 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A0DF695C2BA7348000FB551B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.debug.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.debug.xcconfig"; sourceTree = "<group>"; };
 		F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allergykimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -151,10 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				A020B2312BA1A942002B4C89 /* TabBar */,
-				A02FDCC02B99AAEA00865830 /* Test */,
 				A020B2262BA174CD002B4C89 /* Onboarding */,
 				A02FDCAD2B9999C300865830 /* Home */,
 				A04D75A82B9F59F400F660A7 /* Search */,
+				A0DF695B2BA7345D00FB551B /* Map */,
 				A09360742B9EFA0D00BF2E62 /* MyPage */,
 			);
 			path = Views;
@@ -280,14 +280,6 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		A02FDCC02B99AAEA00865830 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				A02FDC7D2B99835500865830 /* ViewController.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		A04D75A82B9F59F400F660A7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +307,14 @@
 				A09360772B9F02B800BF2E62 /* ProfileView.swift */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		A0DF695B2BA7345D00FB551B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A0DF695C2BA7348000FB551B /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */,
 				A02FDCB62B99A01100865830 /* Products.swift in Sources */,
 				A02FDCB42B999DD100865830 /* APIManager.swift in Sources */,
 				A08D57F62BA04EF000824C4F /* ProductDetailViewController.swift in Sources */,
@@ -459,7 +460,6 @@
 				A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */,
 				A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
-				A02FDC7E2B99835500865830 /* ViewController.swift in Sources */,
 				A00532C12BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift in Sources */,
 				A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */,
 				A093606F2B9EECF400BF2E62 /* HomeViewController.swift in Sources */,
