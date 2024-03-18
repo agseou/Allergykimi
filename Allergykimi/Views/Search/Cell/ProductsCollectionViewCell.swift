@@ -16,7 +16,6 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
         view.delegate = self
         view.dataSource = self
         view.register(ProductTagCollectionViewCell.self, forCellWithReuseIdentifier: "ProductTagCollectionViewCell")
-        view.backgroundColor = .blue
         return view
     }()
     var list: [Allergy] = [] {
@@ -41,6 +40,7 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
     override func setConstraints() {
         productImageView.snp.makeConstraints {
             $0.horizontalEdges.equalTo(contentView).inset(10)
+            $0.height.equalTo(contentView).multipliedBy(0.6)
             $0.top.equalTo(contentView).offset(10)
         }
         productName.snp.makeConstraints {
@@ -56,11 +56,10 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
     
     private func createLayout() -> UICollectionViewLayout {
        let layout = LeftAlignedCollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 100, height: 40)
-        //UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
-        layout.sectionInset = .init(top: 10, left: 10, bottom: 10, right: 10)
+        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         return layout
     }
     
@@ -68,13 +67,11 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
         productImageView.kf.setImage(with: URL(string: productData.imgurl1))
         productName.text = productData.prdlstNm
         list = productData.allergy.findMatchingAllergies()
-        collectionView.reloadData()
     }
 }
 
 extension ProductsCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("numberOfItemsInSection: \(list.count)")
         return list.count
     }
     
@@ -83,7 +80,6 @@ extension ProductsCollectionViewCell: UICollectionViewDelegate, UICollectionView
         
         let data = list[indexPath.row]
         cell.updateUI(data: data)
-        print("cellForItemAt: \(indexPath.row)")
         
         return cell
     }

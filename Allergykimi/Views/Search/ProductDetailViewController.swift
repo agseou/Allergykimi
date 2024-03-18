@@ -25,7 +25,8 @@ final class ProductDetailViewController: BaseViewController {
     private var allergyList: [Allergy] = []
     private let productName = UILabel()
     private let allergyLabel = UILabel()
-    private let productD = UILabel()
+    private let productRawmtrl = UILabel()
+    private let productNutrient = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,8 @@ final class ProductDetailViewController: BaseViewController {
         view.addSubview(productImagesCollectionView)
         view.addSubview(productName)
         view.addSubview(allergyLabel)
-        view.addSubview(productD)
+        view.addSubview(productRawmtrl)
+        view.addSubview(productNutrient)
     }
     
     override func configureView() {
@@ -80,8 +82,12 @@ final class ProductDetailViewController: BaseViewController {
         productName.text = productData.prdlstNm
         
         allergyLabel.text = productData.allergy.findMatchingAllergiesString()
-        productD.text = productData.nutrient
-        productD.numberOfLines = 0
+        
+        productRawmtrl.text = productData.rawmtrl
+        productRawmtrl.numberOfLines = 0
+        
+        productNutrient.text = productData.nutrient
+        productNutrient.numberOfLines = 0
     }
     
     override func setConstraints() {
@@ -97,8 +103,12 @@ final class ProductDetailViewController: BaseViewController {
             $0.top.equalTo(productName.snp.bottom).offset(20)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-        productD.snp.makeConstraints {
+        productRawmtrl.snp.makeConstraints {
             $0.top.equalTo(allergyLabel.snp.bottom).offset(10)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        productNutrient.snp.makeConstraints {
+            $0.top.equalTo(productRawmtrl.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
