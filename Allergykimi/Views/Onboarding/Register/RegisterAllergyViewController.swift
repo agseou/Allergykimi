@@ -24,6 +24,9 @@ class RegisterAllergyViewController: BaseViewController {
         btn.configuration = config
         return btn
     }()
+    var filteredAllergies: [Allergy] {
+        Allergy.allCases.filter { $0 != .none && $0 != .unkwoned }
+    }
     var list: [Allergy] = [] {
         didSet { collectionView.reloadData() }
     }
@@ -90,20 +93,20 @@ class RegisterAllergyViewController: BaseViewController {
 
 extension RegisterAllergyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Allergy.allCases.count
+        return filteredAllergies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as! TagCollectionViewCell
         
-        let data = Allergy.allCases[indexPath.row]
+        let data = filteredAllergies[indexPath.row]
         cell.updateUI(data: data, list: list)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = Allergy.allCases[indexPath.row]
+        let data = filteredAllergies[indexPath.row]
         if list.contains(data) {
             list.remove(at: list.firstIndex(of: data)!)
         } else {

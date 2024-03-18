@@ -41,7 +41,7 @@ class TagCollectionViewCell: BaseCollectionViewCell {
     
     func updateUI(data: Allergy, list: [Allergy]) {
         iconLabel.text = data.icon
-        tagLabel.text = data.rawValue
+        tagLabel.text = data.name.first
         contentView.backgroundColor = list.contains(data) ? .accent : .white
         tagLabel.textColor = list.contains(data) ? .white : .black
     }

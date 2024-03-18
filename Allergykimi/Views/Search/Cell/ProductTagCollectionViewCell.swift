@@ -35,7 +35,7 @@ class ProductTagCollectionViewCell: BaseCollectionViewCell {
     }
     
     func updateUI(data: Allergy) {
-        tagLabel.text = data.rawValue
+        tagLabel.text = data.name.first
         print(data.rawValue)
         isMyAllergy(data: data)
     }
