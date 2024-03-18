@@ -20,6 +20,7 @@ final class SearchViewController: BaseViewController {
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.delegate = self
+        view.register(FiliterSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "FiliterSectionHeaderView")
         return view
     }()
     var filiterAllergies: [Allergy] = []
@@ -71,6 +72,30 @@ final class SearchViewController: BaseViewController {
                 return nil
             }
         })
+        
+        dataSource.supplementaryViewProvider  = { (collectionView, kind, indexPath) -> UICollectionReusableView? in
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FiliterSectionHeaderView", for: indexPath) as? FiliterSectionHeaderView
+                
+                header!.filterButton.addTarget(self, action: #selector(self.tapFiliterButton), for: .touchUpInside)
+                
+                return header
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    @objc func tapFiliterButton() {
+        print(#function)
+        let bottomSheetVC = BottomSheetViewController()
+        if #available(iOS 15.0, *) {
+            if let sheet = bottomSheetVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()] // 바텀 시트의 높이 설정
+                sheet.prefersGrabberVisible = true // 바텀 시트 상단의 grabber 표시
+            }
+        }
+        present(bottomSheetVC, animated: true, completion: nil)
     }
     
     
@@ -103,6 +128,10 @@ final class SearchViewController: BaseViewController {
             let layoutSection: NSCollectionLayoutSection
             switch section {
             case .filiter:
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(40),
                                                       heightDimension: .absolute(40))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -114,6 +143,7 @@ final class SearchViewController: BaseViewController {
                 layoutSection = NSCollectionLayoutSection(group: group)
                 layoutSection.orthogonalScrollingBehavior = .continuous
                 layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                layoutSection.boundarySupplementaryItems = [header]
                 return layoutSection
             case .main:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
@@ -143,12 +173,14 @@ extension SearchViewController {
             cell.cancelBtn.tag = indexPath.item
             cell.cancelBtn.addTarget(self, action: #selector(self.tapCancelBtn(_:)), for: .touchUpInside)
         }
+        
     }
     
     @objc func tapCancelBtn(_ sender: UIButton) {
         let indexToRemove = sender.tag
         filiterAllergies.remove(at: indexToRemove)
         updateSnapshot()
+        collectionView.reloadData()
     }
     
     private func productsCellRegistertaion() -> UICollectionView.CellRegistration<ProductsCollectionViewCell, Item> {
@@ -169,7 +201,6 @@ extension SearchViewController: UICollectionViewDelegate {
         if let section = Section(rawValue: indexPath.section) {
             switch section {
             case .filiter:
-                //code
                 break
             case .main:
                 let vc = ProductDetailViewController()
