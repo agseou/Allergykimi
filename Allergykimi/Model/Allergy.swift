@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Allergy: String, CaseIterable, Codable {
+enum Allergy: String, CaseIterable, Codable, Hashable {
     case shrimp
     case crab
     case squid
@@ -31,7 +31,7 @@ enum Allergy: String, CaseIterable, Codable {
     case tomatoes
     case sulfurousAcids
     case none
-    case unkwoned
+    case unknowned
     
     var name: [String] {
         switch self {
@@ -81,7 +81,7 @@ enum Allergy: String, CaseIterable, Codable {
             ["아황산류", "와인"]
         case .none:
             ["없음"]
-        case .unkwoned:
+        case .unknowned:
             ["알수없음"]
         }
     }
@@ -134,7 +134,7 @@ enum Allergy: String, CaseIterable, Codable {
             "🍷"
         case .none:
             "❌"
-        case .unkwoned:
+        case .unknowned:
             "❓"
         }
     }

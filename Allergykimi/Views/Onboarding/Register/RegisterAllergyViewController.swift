@@ -25,7 +25,7 @@ class RegisterAllergyViewController: BaseViewController {
         return btn
     }()
     var filteredAllergies: [Allergy] {
-        Allergy.allCases.filter { $0 != .none && $0 != .unkwoned }
+        Allergy.allCases.filter { $0 != .none && $0 != .unknowned }
     }
     var list: [Allergy] = [] {
         didSet { collectionView.reloadData() }

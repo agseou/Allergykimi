@@ -13,14 +13,16 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
     private let productName = UILabel()
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        view.isScrollEnabled = false
         view.delegate = self
         view.dataSource = self
         view.register(ProductTagCollectionViewCell.self, forCellWithReuseIdentifier: "ProductTagCollectionViewCell")
         return view
     }()
-    var list: [Allergy] = [] {
+    var productAllergiesTaglist: [Allergy] = [] {
         didSet { collectionView.reloadData() }
     }
+    var filiterAllergies: [Allergy] = []
     
     override func configureHierarchy() {
         contentView.addSubview(productImageView)
@@ -33,22 +35,23 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
         DispatchQueue.main.async {
             self.productImageView.layer.cornerRadius = 15
         }
+        productImageView.clipsToBounds = true
         productName.text = "상품 이름"
-        productName.font = .systemFont(ofSize: 20, weight: .bold)
+        productName.font = .systemFont(ofSize: 17, weight: .bold)
     }
     
     override func setConstraints() {
         productImageView.snp.makeConstraints {
             $0.horizontalEdges.equalTo(contentView).inset(10)
-            $0.height.equalTo(contentView).multipliedBy(0.6)
+            $0.height.lessThanOrEqualTo(contentView).multipliedBy(0.6)
             $0.top.equalTo(contentView).offset(10)
         }
         productName.snp.makeConstraints {
-            $0.top.equalTo(productImageView.snp.bottom).offset(10)
+            $0.top.equalTo(productImageView.snp.bottom).offset(5)
             $0.horizontalEdges.equalTo(contentView).inset(10)
         }
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(productName.snp.bottom).offset(10)
+            $0.top.equalTo(productName.snp.bottom).offset(5)
             $0.horizontalEdges.equalTo(contentView).inset(10)
             $0.bottom.equalTo(contentView)
         }
@@ -57,7 +60,7 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
     private func createLayout() -> UICollectionViewLayout {
        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumLineSpacing = 5
+        layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         return layout
@@ -66,20 +69,20 @@ final class ProductsCollectionViewCell: BaseCollectionViewCell {
     func updateUI(productData: ItemInfo) {
         productImageView.kf.setImage(with: URL(string: productData.imgurl1))
         productName.text = productData.prdlstNm
-        list = productData.allergy.findMatchingAllergies()
+        productAllergiesTaglist = productData.allergy.findMatchingAllergies()
     }
 }
 
 extension ProductsCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return productAllergiesTaglist.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductTagCollectionViewCell", for: indexPath) as! ProductTagCollectionViewCell
         
-        let data = list[indexPath.row]
-        cell.updateUI(data: data)
+        let data = productAllergiesTaglist[indexPath.row]
+        cell.updateUI(data: data, list: filiterAllergies)
         
         return cell
     }

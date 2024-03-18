@@ -18,13 +18,10 @@ class ProductTagCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
-        contentView.layer.shadowOpacity = 0.2
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        contentView.layer.shadowColor = UIColor.gray.cgColor
         
         tagLabel.textAlignment = .center
         tagLabel.text = "test"
-        tagLabel.font = .systemFont(ofSize: 14, weight: .light)
+        tagLabel.font = .systemFont(ofSize: 15)
     }
     
     override func setConstraints() {
@@ -34,16 +31,13 @@ class ProductTagCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func updateUI(data: Allergy) {
+    func updateUI(data: Allergy, list: [Allergy]) {
         tagLabel.text = data.name.first
-        print(data.rawValue)
-        isMyAllergy(data: data)
+        isFiliterAllergy(data: data, list: list)
     }
     
-    func isMyAllergy(data: Allergy) {
-        let userAllergies = UserDefaultsManager.shared.myAllergies.compactMap { $0 }
-        
-        if userAllergies.contains(where: { $0 == data }) {
+    func isFiliterAllergy(data: Allergy,  list: [Allergy]) {
+        if list.contains(where: { $0 == data }) {
             contentView.backgroundColor = .accent
         } else {
             contentView.backgroundColor = .white 
