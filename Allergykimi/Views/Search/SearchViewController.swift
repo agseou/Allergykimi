@@ -48,9 +48,7 @@ final class SearchViewController: BaseViewController {
     private func configureDataSource() {
         // 셀 등록
         let cellResitration = UICollectionView.CellRegistration<ProductsCollectionViewCell, Item> { cell, indexPath, item in
-            print(item)
-            cell.productImageView.kf.setImage(with: URL(string: item.item.imgurl1))
-            cell.productName.text = item.item.prdlstNm
+            cell.updateUI(productData: item.item)
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

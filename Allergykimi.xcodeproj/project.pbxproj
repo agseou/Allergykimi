@@ -49,6 +49,7 @@
 		A09360782B9F02B800BF2E62 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360772B9F02B800BF2E62 /* ProfileView.swift */; };
 		A093607A2B9F039A00BF2E62 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09360792B9F039A00BF2E62 /* BaseView.swift */; };
 		A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF695C2BA7348000FB551B /* MapViewController.swift */; };
+		A0DF69622BA7C23C00FB551B /* ProductTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		A09360772B9F02B800BF2E62 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A09360792B9F039A00BF2E62 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A0DF695C2BA7348000FB551B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.debug.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.debug.xcconfig"; sourceTree = "<group>"; };
 		F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allergykimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -296,6 +298,7 @@
 			children = (
 				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
 				A00532C02BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift */,
+				A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */,
 				A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
+				A0DF69622BA7C23C00FB551B /* ProductTagCollectionViewCell.swift in Sources */,
 				A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */,
 				A00532BF2BA3E922002548DA /* String+Extension.swift in Sources */,
 				A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */,

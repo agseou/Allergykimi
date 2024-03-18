@@ -25,12 +25,14 @@ final class ProductDetailViewController: BaseViewController {
     private var allergyList: [Allergy] = []
     private let productName = UILabel()
     private let allergyLabel = UILabel()
+    private let productD = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageURLList.append(productData.imgurl1)
-        imageURLList.append(productData.imgurl2)
-        
+        if productData.imgurl1 != productData.imgurl2 {
+            imageURLList.append(productData.imgurl2)
+        }
         configureDataSource()
         updateSnapshot()
         allergyList = productData.allergy.findMatchingAllergies()
@@ -69,6 +71,7 @@ final class ProductDetailViewController: BaseViewController {
         view.addSubview(productImagesCollectionView)
         view.addSubview(productName)
         view.addSubview(allergyLabel)
+        view.addSubview(productD)
     }
     
     override func configureView() {
@@ -77,7 +80,8 @@ final class ProductDetailViewController: BaseViewController {
         productName.text = productData.prdlstNm
         
         allergyLabel.text = productData.allergy.findMatchingAllergiesString()
-        
+        productD.text = productData.nutrient
+        productD.numberOfLines = 0
     }
     
     override func setConstraints() {
@@ -91,6 +95,10 @@ final class ProductDetailViewController: BaseViewController {
         }
         allergyLabel.snp.makeConstraints {
             $0.top.equalTo(productName.snp.bottom).offset(20)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        productD.snp.makeConstraints {
+            $0.top.equalTo(allergyLabel.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
