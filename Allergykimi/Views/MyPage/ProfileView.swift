@@ -26,7 +26,7 @@ final class ProfileView: BaseView {
         backgroundColor = .systemGray6
         
         myProfileImage.backgroundColor = .accent
-        nameLabel.text = "NICKNAME"
+        nameLabel.text = UserDefaultsManager.shared.nickName
     }
     
     override func layoutSubviews() {

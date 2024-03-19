@@ -17,13 +17,8 @@ class RegisterAllergyViewController: BaseViewController {
         view.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "TagCollectionViewCell")
         return view
     }()
-    let nextBtn: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.title = "다음"
-        let btn = UIButton()
-        btn.configuration = config
-        return btn
-    }()
+    let nextBtn = wideButton()
+    var myNickName: String?
     var filteredAllergies: [Allergy] {
         Allergy.allCases.filter { $0 != .none && $0 != .unknowned }
     }
@@ -82,12 +77,10 @@ class RegisterAllergyViewController: BaseViewController {
     }
     
     @objc private func tapNextBtn() {
-        let vc = CustomTabBarController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true) {
-            UserDefaultsManager.shared.myAllergies = self.list
-            self.navigationController?.popViewController(animated: true)
-        }
+        let vc = RegisterFinalInformationViewController()
+        vc.myAllergiesList = list
+        vc.myNickName = myNickName
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

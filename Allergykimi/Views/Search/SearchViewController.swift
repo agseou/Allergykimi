@@ -91,8 +91,8 @@ final class SearchViewController: BaseViewController {
         let bottomSheetVC = BottomSheetViewController()
         if #available(iOS 15.0, *) {
             if let sheet = bottomSheetVC.sheetPresentationController {
-                sheet.detents = [.medium(), .large()] // 바텀 시트의 높이 설정
-                sheet.prefersGrabberVisible = true // 바텀 시트 상단의 grabber 표시
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
             }
         }
         present(bottomSheetVC, animated: true, completion: nil)
