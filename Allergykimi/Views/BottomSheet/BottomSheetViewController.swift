@@ -7,19 +7,28 @@
 
 import UIKit
 
-class BottomSheetViewController: BaseViewController {
+protocol BottomSheetDelegate: AnyObject {
+    func didDismissWithFilteredAllergies(_ allergies: [Allergy])
+}
 
+class BottomSheetViewController: BaseViewController {
+    
+    weak var delegate: BottomSheetDelegate?
+    
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.delegate = self
         view.dataSource = self
+        view.allowsSelection = true
         view.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "TagCollectionViewCell")
         return view
     }()
     var filteredALLAllergies: [Allergy] {
         Allergy.allCases.filter { $0 != .none && $0 != .unknowned }
     }
-    var filiterAllergies: [Allergy] = []
+    var filiterAllergies: [Allergy] = [] {
+        didSet { collectionView.reloadData() }
+    }
     
     override func configureHierarchy() {
         view.addSubview(collectionView)
@@ -27,24 +36,25 @@ class BottomSheetViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        delegate?.didDismissWithFilteredAllergies(filiterAllergies)
     }
     
     override func setConstraints() {
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
     }
     
     private func createLayout() -> UICollectionViewLayout {
-       let layout = LeftAlignedCollectionViewFlowLayout()
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         return layout
     }
-
+    
 }
 
 extension BottomSheetViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -95,6 +95,8 @@ final class SearchViewController: BaseViewController {
                 sheet.prefersGrabberVisible = true
             }
         }
+        bottomSheetVC.delegate = self
+        bottomSheetVC.filiterAllergies = filiterAllergies
         present(bottomSheetVC, animated: true, completion: nil)
     }
     
@@ -208,5 +210,12 @@ extension SearchViewController: UICollectionViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
+    }
+}
+
+extension SearchViewController: BottomSheetDelegate {
+    func didDismissWithFilteredAllergies(_ allergies: [Allergy]) {
+        filiterAllergies = allergies
+        updateSnapshot()
     }
 }
