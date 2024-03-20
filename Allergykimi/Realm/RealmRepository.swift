@@ -23,4 +23,15 @@ class RealmRepository {
         }
         print(realm.configuration.fileURL!)
     }
+    
+    func fetchItem<T: Object>(ofType type: T.Type) -> Results<T> {
+        print(realm.configuration.fileURL!)
+        return realm.objects(T.self)
+    }
+    
+    func countOfItems<T: Object>(ofType type: T.Type) -> Int {
+        let results = realm.objects(T.self)
+        return results.count
+    }
+    
 }

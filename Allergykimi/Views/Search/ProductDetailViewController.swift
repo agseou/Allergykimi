@@ -14,6 +14,7 @@ final class ProductDetailViewController: BaseViewController {
         case main
     }
     
+    let repository = RealmRepository()
     var productData: ItemInfo!
     
     private lazy var productImagesCollectionView = {
@@ -39,6 +40,11 @@ final class ProductDetailViewController: BaseViewController {
         allergyList = productData.allergy.findMatchingAllergies()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let data = recentProduct(prductName: productData.prdlstNm, prductImgURL: productData.imgurl1, allergy:  productData.allergy, prdkind:  productData.prdkind)
+        repository.createItem(data)
+    }
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
         snapshot.appendSections(Section.allCases)

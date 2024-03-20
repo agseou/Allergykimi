@@ -15,6 +15,7 @@ class RecentlyCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         contentView.addSubview(productImage)
+        contentView.addSubview(productName)
     }
     
     override func configureView() {
@@ -28,12 +29,13 @@ class RecentlyCollectionViewCell: BaseCollectionViewCell {
         }
         productName.snp.makeConstraints {
             $0.leading.equalTo(productImage.snp.trailing)
-            $0.centerY.equalTo(productImage)
+            $0.top.equalTo(productImage)
+            $0.trailing.equalTo(contentView)
         }
     }
     
-    func updateUI(data: Item) {
-        productImage.kf.setImage(with: URL(string: data.item.imgurl1))
-        productName.text = data.item.prdlstNm
+    func updateUI(data: recentProduct) {
+        productImage.kf.setImage(with: URL(string: data.prductImgURL))
+        productName.text = data.prductName
     }
 }

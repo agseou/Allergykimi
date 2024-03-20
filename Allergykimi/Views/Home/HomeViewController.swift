@@ -13,24 +13,31 @@ class HomeViewController: BaseViewController {
         case banner
         case searchBar
         case category
-        case magagine
+        case recently
+        case favorite
     }
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.delegate = self
+        view.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderCollectionReusableView")
         return view
     }()
-    
+    var recentlyList: [recentProduct] = []
+    let repository = RealmRepository()
     override func configureHierarchy() {
         view.addSubview(collectionView)
     }
     
     override func configureView() {
         super.configureView()
-        
         configureDataSource()
+        updateSnapshot()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateSnapshot()
     }
     
@@ -49,6 +56,18 @@ class HomeViewController: BaseViewController {
         snapshot.appendItems(bannerdata, toSection: .banner)
         snapshot.appendItems([UUID()], toSection: .searchBar)
         snapshot.appendItems([UUID()], toSection: .category)
+        let results = repository.fetchItem(ofType: recentProduct.self)
+        recentlyList = Array(results).reversed()
+        if repository.countOfItems(ofType: recentProduct.self) != 0 {
+            snapshot.appendItems(recentlyList, toSection: .recently)
+        } else {
+            snapshot.appendItems([UUID()], toSection: .recently)
+        }
+//        if repository.countOfItems(ofType: favoriteProduct.self) != 0 {
+//            snapshot.appendItems(recentlyList, toSection: .favorite)
+//        } else {
+            snapshot.appendItems([UUID()], toSection: .favorite)
+//        }
         dataSource.apply(snapshot)
     }
     
@@ -58,6 +77,8 @@ class HomeViewController: BaseViewController {
         let searchCellRegistertaion = searchCellRegistertaion()
         let categoryCellRegistertaion = categoryCellRegistertaion()
         let recentlyCellRegistertaion = recentlyCellRegistertaion()
+        let favoriteCellRegistertaion = favoriteCellRegistertaion()
+        let emptyCellRegistertaion = emptyCellRegistertaion()
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             
@@ -75,15 +96,49 @@ class HomeViewController: BaseViewController {
                     let cell = collectionView.dequeueConfiguredReusableCell(using: categoryCellRegistertaion, for: indexPath, item: itemIdentifier as? UUID)
                     
                     return cell
-                case .magagine:
-                    let cell = collectionView.dequeueConfiguredReusableCell(using: recentlyCellRegistertaion, for: indexPath, item: itemIdentifier as? Int)
-                    
-                    return cell
+                case .recently:
+                    if self.repository.countOfItems(ofType: recentProduct.self) != 0 {
+                        let cell = collectionView.dequeueConfiguredReusableCell(using: recentlyCellRegistertaion, for: indexPath, item: itemIdentifier as? recentProduct)
+                        
+                        return cell
+                    } else {
+                        let cell = collectionView.dequeueConfiguredReusableCell(using: emptyCellRegistertaion, for: indexPath, item: itemIdentifier as? UUID)
+                        
+                        return cell
+                    }
+                case .favorite:
+                    if self.repository.countOfItems(ofType: favoriteProduct.self) != 0 {
+                        let cell = collectionView.dequeueConfiguredReusableCell(using: favoriteCellRegistertaion, for: indexPath, item: itemIdentifier as? favoriteProduct)
+                        
+                        return cell
+                    } else {
+                        let cell = collectionView.dequeueConfiguredReusableCell(using: emptyCellRegistertaion, for: indexPath, item: itemIdentifier as? UUID)
+                        
+                        return cell
+                    }
                 }
             } else {
                 return nil
             }
         })
+        
+        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) -> UICollectionReusableView? in
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderCollectionReusableView", for: indexPath) as? HeaderCollectionReusableView
+                if let section = Section(rawValue: indexPath.section) {
+                    switch section {
+                    case .recently:
+                        header?.headerLabel.text = "최근 본 상품"
+                    case .favorite:
+                        header?.headerLabel.text = "즐겨찾기한 상품"
+                    default: break
+                    }
+                }
+                return header
+            } else {
+                return nil
+            }
+        }
     }
     
     
@@ -130,36 +185,18 @@ class HomeViewController: BaseViewController {
                 
                 return layoutSection
                 
-            case .magagine:
-                let itemSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .fractionalHeight(1.0)
-                )
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8)
-               
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6),
-                    heightDimension: .fractionalHeight(0.3))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
-                
-                // header
-//                let headerSize = NSCollectionLayoutSize(
-//                    widthDimension: .fractionalWidth(1.0),
-//                    heightDimension: .absolute(40)
-//                )
-//                let header = NSCollectionLayoutBoundarySupplementaryItem(
-//                    layoutSize: headerSize,
-//                    elementKind: UICollectionView.elementKindSectionHeader,
-//                    alignment: .top
-//                )
-                
-                // section
-                layoutSection = NSCollectionLayoutSection(group: group)
-               // layoutSection.boundarySupplementaryItems = [header]
-                layoutSection.orthogonalScrollingBehavior = .groupPaging
-                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 5)
-                
-                return layoutSection
+            case .recently:
+                if self.repository.countOfItems(ofType: recentProduct.self) != 0 {
+                    return self.productSectionLayout()
+                } else {
+                    return self.emptyProductSectionLayout(height: 150)
+                }
+            case .favorite:
+                if self.repository.countOfItems(ofType: favoriteProduct.self) != 0 {
+                 return self.productSectionLayout()
+                } else {
+                return self.emptyProductSectionLayout(height: 150)
+                }
             }
         }
         return layout
@@ -168,6 +205,57 @@ class HomeViewController: BaseViewController {
 
 
 extension HomeViewController {
+    
+    private func productSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6),
+                                               heightDimension: .fractionalHeight(0.3))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(40)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        let layoutSection = NSCollectionLayoutSection(group: group)
+        layoutSection.boundarySupplementaryItems = [header]
+        layoutSection.orthogonalScrollingBehavior = .groupPaging
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 5)
+        
+        return layoutSection
+    }
+    
+    private func emptyProductSectionLayout(height: CGFloat) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .absolute(height))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .absolute(height))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(40)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        let layoutSection = NSCollectionLayoutSection(group: group)
+        layoutSection.boundarySupplementaryItems = [header]
+        
+        return layoutSection
+    }
     
     private func bannerCellRegistertaion() -> UICollectionView.CellRegistration<BannerCollectionViewCell, BannerBox> {
         UICollectionView.CellRegistration<BannerCollectionViewCell, BannerBox> { cell, indexPath, item in
@@ -191,8 +279,19 @@ extension HomeViewController {
         }
     }
     
-    private func recentlyCellRegistertaion() -> UICollectionView.CellRegistration<RecentlyCollectionViewCell, Int> {
-        UICollectionView.CellRegistration<RecentlyCollectionViewCell, Int> { cell, indexPath, item in
+    private func recentlyCellRegistertaion() -> UICollectionView.CellRegistration<RecentlyCollectionViewCell, recentProduct> {
+        UICollectionView.CellRegistration<RecentlyCollectionViewCell, recentProduct> { cell, indexPath, item in
+            cell.updateUI(data: item)
+        }
+    }
+    private func favoriteCellRegistertaion() -> UICollectionView.CellRegistration<RecentlyCollectionViewCell, favoriteProduct> {
+        UICollectionView.CellRegistration<RecentlyCollectionViewCell, favoriteProduct> { cell, indexPath, item in
+            
+        }
+    }
+    
+    private func emptyCellRegistertaion() -> UICollectionView.CellRegistration<EmptyItemsCollectionViewCell, UUID> {
+        UICollectionView.CellRegistration<EmptyItemsCollectionViewCell, UUID> { cell, indexPath, item in
             
         }
     }
@@ -215,7 +314,9 @@ extension HomeViewController: UICollectionViewDelegate {
                 break
             case .category:
                 break
-            case .magagine:
+            case .recently:
+                break
+            case .favorite:
                 break
             }
         }

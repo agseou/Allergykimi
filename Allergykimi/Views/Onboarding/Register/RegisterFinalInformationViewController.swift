@@ -48,7 +48,7 @@ class RegisterFinalInformationViewController: BaseViewController {
     @objc func tapNextBtn() {
         UserDefaultsManager.shared.myAllergies = self.myAllergiesList
         UserDefaultsManager.shared.nickName = self.myNickName ?? "User"
-        UserDefaultsManager.shared.userState = false
+        UserDefaultsManager.shared.userState = true
         let vc = CustomTabBarController()
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate {
