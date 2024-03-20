@@ -36,7 +36,7 @@ class RegisterFinalInformationViewController: BaseViewController {
             myAllergyLabel.textColor = .red
         }
         myAllergyLabel.font = .systemFont(ofSize: 20, weight: .bold)
-       
+        
         myAllergyLabel.numberOfLines = 0
         myAllergyLabel.textAlignment = .center
         myAllergyLabel.lineBreakMode = .byWordWrapping
@@ -46,12 +46,14 @@ class RegisterFinalInformationViewController: BaseViewController {
     }
     
     @objc func tapNextBtn() {
+        UserDefaultsManager.shared.myAllergies = self.myAllergiesList
+        UserDefaultsManager.shared.nickName = self.myNickName ?? "User"
+        UserDefaultsManager.shared.userState = false
         let vc = CustomTabBarController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true) {
-            UserDefaultsManager.shared.myAllergies = self.myAllergiesList
-            UserDefaultsManager.shared.nickName = self.myNickName ?? "User"
-            self.navigationController?.popViewController(animated: true)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate {
+            sceneDelegate.window?.rootViewController = vc
+            sceneDelegate.window?.makeKeyAndVisible()
         }
     }
     

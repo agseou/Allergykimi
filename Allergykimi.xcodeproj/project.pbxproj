@@ -46,6 +46,14 @@
 		A06A18922BA8B94D00D52A5C /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18912BA8B94D00D52A5C /* RegisterProfileViewController.swift */; };
 		A06A18942BA8B97F00D52A5C /* RegisterFinalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18932BA8B97F00D52A5C /* RegisterFinalInformationViewController.swift */; };
 		A06A18972BA91B1700D52A5C /* wideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18962BA91B1700D52A5C /* wideButton.swift */; };
+		A06A18A22BA973F800D52A5C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18A12BA973F800D52A5C /* CustomNavigationController.swift */; };
+		A06A18A52BA9A29D00D52A5C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18A42BA9A29D00D52A5C /* CategoryCollectionViewCell.swift */; };
+		A06A18AA2BAA6D1700D52A5C /* AllergyRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18A92BAA6D1700D52A5C /* AllergyRealm.swift */; };
+		A06A18AC2BAA711800D52A5C /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18AB2BAA711800D52A5C /* RealmRepository.swift */; };
+		A06A18AE2BAA779F00D52A5C /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18AD2BAA779F00D52A5C /* BannerCollectionViewCell.swift */; };
+		A06A18B12BAA7B9400D52A5C /* SearchBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B02BAA7B9400D52A5C /* SearchBarCollectionViewCell.swift */; };
+		A06A18B32BAA7BA000D52A5C /* RecentlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B22BAA7BA000D52A5C /* RecentlyCollectionViewCell.swift */; };
+		A06A18B62BAAB42700D52A5C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B52BAAB42700D52A5C /* WebViewController.swift */; };
 		A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F02BA014AB00824C4F /* SearchViewModel.swift */; };
 		A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */; };
 		A08D57F62BA04EF000824C4F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */; };
@@ -94,6 +102,14 @@
 		A06A18912BA8B94D00D52A5C /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		A06A18932BA8B97F00D52A5C /* RegisterFinalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFinalInformationViewController.swift; sourceTree = "<group>"; };
 		A06A18962BA91B1700D52A5C /* wideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wideButton.swift; sourceTree = "<group>"; };
+		A06A18A12BA973F800D52A5C /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		A06A18A42BA9A29D00D52A5C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A06A18A92BAA6D1700D52A5C /* AllergyRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRealm.swift; sourceTree = "<group>"; };
+		A06A18AB2BAA711800D52A5C /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		A06A18AD2BAA779F00D52A5C /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		A06A18B02BAA7B9400D52A5C /* SearchBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		A06A18B22BAA7BA000D52A5C /* RecentlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyCollectionViewCell.swift; sourceTree = "<group>"; };
+		A06A18B52BAAB42700D52A5C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A08D57F02BA014AB00824C4F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +182,8 @@
 		A020B2272BA174E5002B4C89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A06A18B42BAAB3ED00D52A5C /* ETC */,
+				A06A18A02BA9739200D52A5C /* NavigationBar */,
 				A06A18952BA91AE400D52A5C /* Components */,
 				A06A188A2BA89F9B00D52A5C /* BottomSheet */,
 				A020B2312BA1A942002B4C89 /* TabBar */,
@@ -230,6 +248,7 @@
 				A02FDCAC2B99998800865830 /* App */,
 				A02FDCA32B9997D000865830 /* Base */,
 				A020B2232BA16EB3002B4C89 /* Extension */,
+				A06A18A82BAA6CFA00D52A5C /* Realm */,
 				A02FDCAB2B99998100865830 /* Model */,
 				A020B2272BA174E5002B4C89 /* Views */,
 				A02FDCAA2B99997A00865830 /* Network */,
@@ -287,6 +306,7 @@
 		A02FDCAD2B9999C300865830 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A06A18A32BA9A23E00D52A5C /* Cell */,
 				A093606E2B9EECF400BF2E62 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -327,6 +347,42 @@
 				A06A18962BA91B1700D52A5C /* wideButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A06A18A02BA9739200D52A5C /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				A06A18A12BA973F800D52A5C /* CustomNavigationController.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		A06A18A32BA9A23E00D52A5C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A06A18AD2BAA779F00D52A5C /* BannerCollectionViewCell.swift */,
+				A06A18B02BAA7B9400D52A5C /* SearchBarCollectionViewCell.swift */,
+				A06A18A42BA9A29D00D52A5C /* CategoryCollectionViewCell.swift */,
+				A06A18B22BAA7BA000D52A5C /* RecentlyCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A06A18A82BAA6CFA00D52A5C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A06A18A92BAA6D1700D52A5C /* AllergyRealm.swift */,
+				A06A18AB2BAA711800D52A5C /* RealmRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		A06A18B42BAAB3ED00D52A5C /* ETC */ = {
+			isa = PBXGroup;
+			children = (
+				A06A18B52BAAB42700D52A5C /* WebViewController.swift */,
+			);
+			path = ETC;
 			sourceTree = "<group>";
 		};
 		A08D57F22BA01F2100824C4F /* Cell */ = {
@@ -490,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A06A18B32BAA7BA000D52A5C /* RecentlyCollectionViewCell.swift in Sources */,
 				A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */,
 				A06A188C2BA89FDE00D52A5C /* BottomSheetViewController.swift in Sources */,
 				A02FDCB62B99A01100865830 /* Products.swift in Sources */,
@@ -502,7 +559,9 @@
 				A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */,
 				A02FDCBA2B99A3F100865830 /* DataAPI.swift in Sources */,
 				A00532C12BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift in Sources */,
+				A06A18A22BA973F800D52A5C /* CustomNavigationController.swift in Sources */,
 				A06A18892BA8719800D52A5C /* FiliterTagCollectionViewCell.swift in Sources */,
+				A06A18B12BAA7B9400D52A5C /* SearchBarCollectionViewCell.swift in Sources */,
 				A020B2362BA32D0F002B4C89 /* UserDefaultsManager.swift in Sources */,
 				A06A18972BA91B1700D52A5C /* wideButton.swift in Sources */,
 				A06A18942BA8B97F00D52A5C /* RegisterFinalInformationViewController.swift in Sources */,
@@ -512,21 +571,26 @@
 				A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */,
 				A020B22E2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				A02FDCB22B999C6300865830 /* Observable.swift in Sources */,
+				A06A18AA2BAA6D1700D52A5C /* AllergyRealm.swift in Sources */,
 				A06A188E2BA8AAAA00D52A5C /* FiliterSectionHeaderView.swift in Sources */,
+				A06A18AE2BAA779F00D52A5C /* BannerCollectionViewCell.swift in Sources */,
 				A09360782B9F02B800BF2E62 /* ProfileView.swift in Sources */,
 				A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */,
 				A02FDCB82B99A02300865830 /* Pharmacy.swift in Sources */,
 				A04D75AA2B9F5A0D00F660A7 /* SearchViewController.swift in Sources */,
+				A06A18AC2BAA711800D52A5C /* RealmRepository.swift in Sources */,
 				A09360762B9EFA2800BF2E62 /* MyPageViewController.swift in Sources */,
 				A02FDC7A2B99835500865830 /* AppDelegate.swift in Sources */,
 				A020B2292BA17591002B4C89 /* OnboardingViewController.swift in Sources */,
 				A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */,
+				A06A18B62BAAB42700D52A5C /* WebViewController.swift in Sources */,
 				A020B22C2BA17745002B4C89 /* RegisterAllergyViewController.swift in Sources */,
 				A02FDCA92B99984E00865830 /* BaseTableViewCell.swift in Sources */,
 				A0DF69622BA7C23C00FB551B /* ProductTagCollectionViewCell.swift in Sources */,
 				A02FDCBC2B99A5E800865830 /* APIKey.swift in Sources */,
 				A00532BF2BA3E922002548DA /* String+Extension.swift in Sources */,
 				A02FDC7C2B99835500865830 /* SceneDelegate.swift in Sources */,
+				A06A18A52BA9A29D00D52A5C /* CategoryCollectionViewCell.swift in Sources */,
 				A06A18922BA8B94D00D52A5C /* RegisterProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

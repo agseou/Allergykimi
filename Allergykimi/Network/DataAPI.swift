@@ -10,7 +10,7 @@ import Alamofire
 
 enum DataAPI {
     
-    case Products(query: String)
+    case Products(pages: String, prdname: String, prdkind: String)
     case Pharmacy(LON: String, LAT: String)
     
     var baseURL: String {
@@ -36,10 +36,13 @@ enum DataAPI {
     
     var parameter: Parameters {
         switch self {
-        case .Products(let item):
+        case .Products(let pages, let prdname, let prdkind):
             ["serviceKey": APIKey.serviceKey,
              "returnType": "json",
-             "prdlstNm": item]
+             "pageNo": pages,
+             "numOfRows": "30",
+             "prdkind": prdkind,
+             "prdlstNm": prdname]
         case .Pharmacy(let LON, let LAT):
             ["serviceKey": APIKey.serviceKey,
              "WGS84_LON": LON,
