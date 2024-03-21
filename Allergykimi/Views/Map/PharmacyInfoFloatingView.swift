@@ -9,6 +9,9 @@ import UIKit
 
 class PharmacyInfoFloatingView: BaseView {
     
+    let pharmacy: [PharmacyInfo] = []
+    var phoneNumber: String!
+    
     let contentView = UIStackView()
     let pharmacyName = UILabel()
     let pharmacyTel = UIButton()
@@ -30,19 +33,26 @@ class PharmacyInfoFloatingView: BaseView {
         contentView.distribution = .fill
         contentView.spacing = 4
         contentView.alignment = .leading
+        pharmacyTel.setTitleColor(.black, for: .normal)
+        pharmacyAddr.numberOfLines = 0
     }
     
     @objc private func tapTel() {
-        let phoneNumber = "1234567890" // 전화하고 싶은 번호로 교체하세요.
-        if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+        if let phoneURL = URL(string: "tel://\(phoneNumber ?? "")") {
             
             if UIApplication.shared.canOpenURL(phoneURL) {
                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
             } else {
-                // 전화 기능을 지원하지 않는 장치에서의 오류 처리
                 print("이 장치에서는 전화 기능을 사용할 수 없습니다.")
             }
         }
+    }
+    
+    func updateView(data: PharmacyInfo) {
+        phoneNumber = data.dutyTel1
+        pharmacyName.text = data.dutyName
+        pharmacyTel.setTitle(data.dutyTel1, for: .normal)
+        pharmacyAddr.text = data.dutyAddr
     }
     
     override func setConstraints() {

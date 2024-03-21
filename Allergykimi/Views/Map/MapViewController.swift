@@ -53,7 +53,6 @@ class MapViewController: BaseViewController {
         myLocationBtn.addTarget(self, action: #selector(tapMyLocationBtn), for: .touchUpInside)
         
         floatingView.isHidden = true
-        
     }
     
     @objc private func tapMyLocationBtn() {
@@ -83,8 +82,9 @@ class MapViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
         floatingView.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(300)
+            $0.height.equalTo(100)
+            $0.horizontalEdges.equalToSuperview().inset(30)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
     
@@ -98,7 +98,6 @@ class MapViewController: BaseViewController {
         let latitude = locationManager.location?.coordinate.latitude ?? 37.4881325624879
         let longitude = locationManager.location?.coordinate.longitude ?? 127.085156592737
         
-        
         let camLocation = NMGLatLng(lat: latitude, lng: longitude)
         let cameraUpdate = NMFCameraUpdate(scrollTo: camLocation)
         nMapView.moveCamera(cameraUpdate)
@@ -106,17 +105,15 @@ class MapViewController: BaseViewController {
     
     // 마커 심기
     func setMarker() {
-        for mark in list {
-            let latitude = mark.latitude
-            let longitude = mark.longitude
-            
+        for (index, pharmacyInfo) in list.enumerated() {
             let marker = NMFMarker()
-            marker.position = NMGLatLng(lat: latitude, lng: longitude)
-            marker.captionText = mark.dutyName
+            marker.position = NMGLatLng(lat: pharmacyInfo.latitude, lng: pharmacyInfo.longitude)
+            marker.captionText = pharmacyInfo.dutyName
+            marker.tag = UInt(index)
             marker.iconPerspectiveEnabled = true
             marker.touchHandler = {(overlay: NMFOverlay) -> Bool in
                 print("touch")
-                self.showFloatingView()
+                self.showFloatingView(tag: index)
                 return true
             }
             marker.mapView = nMapView
@@ -134,10 +131,12 @@ class MapViewController: BaseViewController {
         }
     }
     
-    private func showFloatingView() {
+    private func showFloatingView(tag: Int) {
+        guard tag >= 0 && tag < list.count else { return }
+        floatingView.updateView(data: list[tag])
         floatingView.isHidden = false
         UIView.animate(withDuration: 0.3) {
-            self.floatingView.transform = CGAffineTransform(translationX: 0, y: -300)
+            self.floatingView.transform = CGAffineTransform(translationX: 0, y: 0)
         } completion: { _ in
             self.isFloatingViewPresented = true
         }
@@ -145,7 +144,7 @@ class MapViewController: BaseViewController {
     
     private func hideFloatingView() {
         UIView.animate(withDuration: 0.3) {
-            self.floatingView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.floatingView.transform = CGAffineTransform(translationX: 0, y: 300)
         } completion: { _ in
             self.floatingView.isHidden = true
             self.isFloatingViewPresented = false
