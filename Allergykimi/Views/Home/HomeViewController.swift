@@ -304,7 +304,6 @@ extension HomeViewController: UICollectionViewDelegate {
         if let section = Section(rawValue: indexPath.section) {
             switch section {
             case .banner:
-                
                 guard let urlString = bannerdata[indexPath.item].url else { return }
                 let vc = WebViewController()
                 vc.urlString = urlString
@@ -315,7 +314,10 @@ extension HomeViewController: UICollectionViewDelegate {
             case .category:
                 break
             case .recently:
-                break
+                if self.repository.countOfItems(ofType: recentProduct.self) != 0 {
+//                    let vc = ProductDetailViewController()
+//                    navigationController?.pushViewController(vc, animated: true)
+                }
             case .favorite:
                 break
             }

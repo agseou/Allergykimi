@@ -10,19 +10,18 @@ import Foundation
 class SearchViewModel {
 
     var inputViewDidLoadTrigger: Observable<String?> = Observable(nil)
-    var appendMoreListTrigger: Observable<Int?> = Observable(nil)
     var outputData: Observable<[Item]> = Observable([])
     
     init() {
         inputViewDidLoadTrigger.bind { text in
             guard let text else { return }
-            self.fetchData(pages: "1", prdname: text, prdkind: "")
+            self.fetchData(pages: "1", prdname: text)
         }
     }
     
-    private func fetchData(pages: String, prdname: String, prdkind: String) {
+    private func fetchData(pages: String, prdname: String) {
         guard !prdname.isEmpty else { return }
-        APIManager.shared.request(type: Products.self, api: .Products(pages: pages, prdname: prdname, prdkind: prdkind)) { data in
+        APIManager.shared.request(type: Products.self, api: .Products(pages: pages, prdname: prdname, prdkind: "", prdlstReportNo: "")) { data in
             self.outputData.value = data.body.items
         }
     }

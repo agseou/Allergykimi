@@ -206,7 +206,8 @@ extension SearchViewController: UICollectionViewDelegate {
                 break
             case .main:
                 let vc = ProductDetailViewController()
-                vc.productData = list[indexPath.item].item
+                print(list[indexPath.item].item.prdlstReportNo)
+                vc.productNo = list[indexPath.item].item.prdlstReportNo
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

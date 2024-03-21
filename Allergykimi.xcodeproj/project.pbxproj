@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
 		A00532BF2BA3E922002548DA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00532BE2BA3E922002548DA /* String+Extension.swift */; };
 		A00532C12BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00532C02BA42BE2002548DA /* PagingProductImageCollectionViewCell.swift */; };
 		A020B2252BA16EC4002B4C89 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */; };
@@ -56,6 +55,9 @@
 		A06A18B62BAAB42700D52A5C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B52BAAB42700D52A5C /* WebViewController.swift */; };
 		A06A18B82BAAD98800D52A5C /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B72BAAD98800D52A5C /* HeaderCollectionReusableView.swift */; };
 		A06A18BA2BAAE2FA00D52A5C /* EmptyItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18B92BAAE2FA00D52A5C /* EmptyItemsCollectionViewCell.swift */; };
+		A06A18BC2BAB091200D52A5C /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18BB2BAB091200D52A5C /* ProductDetailViewModel.swift */; };
+		A06A18BD2BAB1FDA00D52A5C /* Pods_Allergykimi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */; };
+		A06A18C12BAB8E9D00D52A5C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A18C02BAB8E9D00D52A5C /* MapViewModel.swift */; };
 		A08D57F12BA014AB00824C4F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F02BA014AB00824C4F /* SearchViewModel.swift */; };
 		A08D57F42BA01F3600824C4F /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */; };
 		A08D57F62BA04EF000824C4F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */; };
@@ -114,6 +116,8 @@
 		A06A18B52BAAB42700D52A5C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A06A18B72BAAD98800D52A5C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A06A18B92BAAE2FA00D52A5C /* EmptyItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A06A18BB2BAB091200D52A5C /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		A06A18C02BAB8E9D00D52A5C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		A08D57F02BA014AB00824C4F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +143,9 @@
 				A02FDC9C2B9993DF00865830 /* RealmSwift in Frameworks */,
 				A02FDCBF2B99AA4F00865830 /* SwiftyXMLParser in Frameworks */,
 				A02FDC9A2B9993DF00865830 /* Realm in Frameworks */,
+				A06A18BD2BAB1FDA00D52A5C /* Pods_Allergykimi.framework in Frameworks */,
 				A02FDC972B99935000865830 /* Kingfisher in Frameworks */,
 				A02FDC942B9991E100865830 /* SnapKit in Frameworks */,
-				05BC612917B3B18496BB8CB4 /* Pods_Allergykimi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +337,7 @@
 				A06A188D2BA8AAAA00D52A5C /* FiliterSectionHeaderView.swift */,
 				A08D57F02BA014AB00824C4F /* SearchViewModel.swift */,
 				A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */,
+				A06A18BB2BAB091200D52A5C /* ProductDetailViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DF695C2BA7348000FB551B /* MapViewController.swift */,
+				A06A18C02BAB8E9D00D52A5C /* MapViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -576,12 +582,14 @@
 				A02FDCA52B9997D700865830 /* BaseViewController.swift in Sources */,
 				A06A18B82BAAD98800D52A5C /* HeaderCollectionReusableView.swift in Sources */,
 				A06A18902BA8AAD300D52A5C /* BaseCollectionReusableView.swift in Sources */,
+				A06A18BC2BAB091200D52A5C /* ProductDetailViewModel.swift in Sources */,
 				A020B2302BA1894C002B4C89 /* TagCollectionViewCell.swift in Sources */,
 				A020B22E2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				A02FDCB22B999C6300865830 /* Observable.swift in Sources */,
 				A06A18AA2BAA6D1700D52A5C /* myProduct.swift in Sources */,
 				A06A188E2BA8AAAA00D52A5C /* FiliterSectionHeaderView.swift in Sources */,
 				A06A18AE2BAA779F00D52A5C /* BannerCollectionViewCell.swift in Sources */,
+				A06A18C12BAB8E9D00D52A5C /* MapViewModel.swift in Sources */,
 				A09360782B9F02B800BF2E62 /* ProfileView.swift in Sources */,
 				A09360732B9EF56600BF2E62 /* CustomTabBarController.swift in Sources */,
 				A02FDCB82B99A02300865830 /* Pharmacy.swift in Sources */,

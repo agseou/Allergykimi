@@ -9,7 +9,7 @@ import Foundation
 import SwiftyXMLParser
 
 // MARK: - Pharmacy
-struct Pharmacy {
+struct Pharmacy: Decodable {
     let response: Response
     
     init(xml: XML.Accessor) {
@@ -18,7 +18,7 @@ struct Pharmacy {
 }
 
 // MARK: - Response
-struct Response {
+struct Response: Decodable {
     let body: Data
     init(xml: XML.Accessor) {
         self.body = Data(xml: xml["body"])
@@ -26,7 +26,7 @@ struct Response {
 }
 
 // MARK: - Body
-struct Data {
+struct Data: Decodable {
     let items: PharmacyItems
     let numOfRows: Int
     let pageNo: Int
@@ -40,7 +40,7 @@ struct Data {
 }
 
 // MARK: - Items
-struct PharmacyItems {
+struct PharmacyItems: Decodable {
     let item: [PharmacyInfo]
     
     init(xml: XML.Accessor) {
@@ -49,15 +49,12 @@ struct PharmacyItems {
 }
 
 // MARK: - Item
-struct PharmacyInfo {
+struct PharmacyInfo: Decodable {
     let cnt: Int
     let distance: Double
     let dutyAddr: String
-    let dutyDiv: String
-    let dutyDivName: String
     let dutyName: String
     let dutyTel1: String
-    let endTime: Int
     let hpid: String
     let latitude: Double
     let longitude: Double
@@ -68,11 +65,8 @@ struct PharmacyInfo {
         self.cnt = xml["cnt"].int ?? 0
         self.distance = xml["distance"].double ?? 0.0
         self.dutyAddr = xml["dutyAddr"].text ?? ""
-        self.dutyDiv = xml["dutyDiv"].text ?? ""
-        self.dutyDivName = xml["dutyDivName"].text ?? ""
         self.dutyName = xml["dutyName"].text ?? ""
         self.dutyTel1 = xml["dutyTel1"].text ?? ""
-        self.endTime = xml["endTime"].int ?? 0
         self.hpid = xml["hpid"].text ?? ""
         self.latitude = xml["latitude"].double ?? 0.0
         self.longitude = xml["longitude"].double ?? 0.0

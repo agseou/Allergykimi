@@ -10,7 +10,7 @@ import Alamofire
 
 enum DataAPI {
     
-    case Products(pages: String, prdname: String, prdkind: String)
+    case Products(pages: String, prdname: String, prdkind: String, prdlstReportNo: String)
     case Pharmacy(LON: String, LAT: String)
     
     var baseURL: String {
@@ -22,13 +22,13 @@ enum DataAPI {
         case .Products:
             return URL(string: baseURL + "B553748/CertImgListServiceV3/getCertImgListServiceV3")!
         case .Pharmacy:
-            return URL(string: baseURL + "B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire")!
+            return URL(string: baseURL + "B552657/ErmctInsttInfoInqireService/getParmacyLcinfoInqire")!
         }
     }
-   
+    
     var header: HTTPHeaders {
-           return ["accept": "*/*"]
-       }
+        return ["accept": "*/*"]
+    }
     
     var method: HTTPMethod {
         return .get
@@ -36,17 +36,32 @@ enum DataAPI {
     
     var parameter: Parameters {
         switch self {
-        case .Products(let pages, let prdname, let prdkind):
-            ["serviceKey": APIKey.serviceKey,
-             "returnType": "json",
-             "pageNo": pages,
-             "numOfRows": "30",
-             "prdkind": prdkind,
-             "prdlstNm": prdname]
+        case .Products(let pages, let prdname, let prdkind, let prdlstReportNo):
+            var params: Parameters = [
+                "serviceKey": APIKey.serviceKey,
+                "returnType": "json",
+                "pageNo": pages,
+                "numOfRows": "30"
+            ]
+            
+            if !prdname.isEmpty {
+                params["prdlstNm"] = prdname
+            }
+            if !prdkind.isEmpty {
+                params["prdkind"] = prdkind
+            }
+            if !prdlstReportNo.isEmpty {
+                params["prdlstReportNo"] = prdlstReportNo
+            }
+            
+            return params
+            
         case .Pharmacy(let LON, let LAT):
-            ["serviceKey": APIKey.serviceKey,
-             "WGS84_LON": LON,
-             "WGS84_LAT": LAT]
+            return [
+                "serviceKey": APIKey.serviceKey,
+                "WGS84_LON": LON,
+                "WGS84_LAT": LAT
+            ]
         }
     }
 }

@@ -33,9 +33,8 @@ struct ItemInfo: Decodable, Hashable {
     let prdkind: String
     let rawmtrl: String
     let prdlstNm: String
-    let imgurl2: String
+    let imgurl2: String?
     let imgurl1: String
-    let productGb: String
     let prdlstReportNo: String
     let allergy: String
     let nutrient: String?

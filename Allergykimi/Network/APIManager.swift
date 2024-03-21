@@ -43,9 +43,9 @@ class APIManager {
                    parameters: api.parameter,
                    encoding: URLEncoding(destination: .queryString),
                    headers: api.header).responseData { response in
+            print(response.request?.url)
             switch response.result {
             case .success(let success):
-                print(success)
                 let xml = XML.parse(success)
                 completionHandler(xml)
             case .failure(let failure):

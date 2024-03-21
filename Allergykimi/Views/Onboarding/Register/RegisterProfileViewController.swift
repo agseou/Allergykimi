@@ -14,6 +14,12 @@ final class RegisterProfileViewController: BaseViewController {
     private let nickNameTextfieldUnderLine = UIView()
     private let nextBtn = wideButton()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        hideKeyboard()
+    }
+    
     override func configureHierarchy() {
         view.addSubview(contentLabel)
         view.addSubview(nickNameTextfield)
