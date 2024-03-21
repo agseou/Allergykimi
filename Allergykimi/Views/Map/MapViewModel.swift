@@ -9,12 +9,13 @@ import Foundation
 
 class MapViewModel {
     
-    var inputViewDidLoadTrigger: Observable<(String, String)> = Observable(("127.085156592737", "37.4881325624879"))
+    var inputViewDidLoadTrigger: Observable<(String?, String?)> = Observable((nil, nil))
     var outputData: Observable<[PharmacyInfo]> = Observable([])
     
     init() {
         inputViewDidLoadTrigger.bind { data in
-            self.fetchData(LON: data.0, LAT: data.1)
+            guard let LON = data.0, let LAT = data.1 else { return }
+            self.fetchData(LON: LON, LAT: LAT)
         }
     }
     

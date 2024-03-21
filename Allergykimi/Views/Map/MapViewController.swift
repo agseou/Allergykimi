@@ -26,11 +26,7 @@ class MapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLocationData()
-        viewModel.inputViewDidLoadTrigger.value = ("127.085156592737", "37.4881325624879")
-        viewModel.outputData.bind { data in
-            self.list = data
-            self.setMarker()
-        }
+        checkDeviceLocationAuthorization()
     }
     
     override func configureHierarchy() {
@@ -91,7 +87,17 @@ class MapViewController: BaseViewController {
             let marker = NMFMarker()
             marker.position = NMGLatLng(lat: latitude, lng: longitude)
             marker.mapView = nMapView
+        }
+    }
+    
+    func deletMarker() {
+        for mark in list {
+            let latitude = mark.latitude
+            let longitude = mark.longitude
             
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: latitude, lng: longitude)
+            marker.mapView = nil
         }
     }
     
@@ -104,11 +110,7 @@ extension MapViewController {
             if CLLocationManager.locationServicesEnabled() {
                 //현재 사용자의 위치 권한 상태 확인
                 let authorization: CLAuthorizationStatus
-                if #available(iOS 14.0, *) { //iOS 14 이상부터
-                    authorization = self.locationManager.authorizationStatus
-                } else {
-                    authorization = CLLocationManager.authorizationStatus()
-                }
+                authorization = self.locationManager.authorizationStatus
                 DispatchQueue.main.async {
                     self.checkCurrentLocationAuthorization(status: authorization)
                 }
@@ -155,6 +157,12 @@ extension MapViewController: CLLocationManagerDelegate {
             let camLocation = NMGLatLng(lat: coordinate.latitude, lng: coordinate.longitude)
             let cameraUpdate = NMFCameraUpdate(scrollTo: camLocation)
             nMapView.moveCamera(cameraUpdate)
+            deletMarker()
+            viewModel.inputViewDidLoadTrigger.value = ("\(coordinate.longitude)", "\(coordinate.latitude)")
+            viewModel.outputData.bind { data in
+                self.list = data
+                self.setMarker()
+            }
         }
         locationManager.stopUpdatingLocation()
     }

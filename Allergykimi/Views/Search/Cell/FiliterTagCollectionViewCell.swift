@@ -42,12 +42,7 @@ class FiliterTagCollectionViewCell: BaseCollectionViewCell {
             $0.horizontalEdges.equalTo(contentView).inset(4)
         }
     }
-    
-//    func updateFiliterUI() {
-//        tagLabel.text = "필터"
-//        cancelBtn.isHidden = true
-//    }
-    
+
     func updateTagUI(data: Allergy) {
         tagLabel.text = data.name.first
         cancelBtn.isHidden = false

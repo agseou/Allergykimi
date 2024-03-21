@@ -315,8 +315,9 @@ extension HomeViewController: UICollectionViewDelegate {
                 break
             case .recently:
                 if self.repository.countOfItems(ofType: recentProduct.self) != 0 {
-//                    let vc = ProductDetailViewController()
-//                    navigationController?.pushViewController(vc, animated: true)
+                    let vc = ProductDetailViewController()
+                    vc.productNo = recentlyList[indexPath.item].prdlstReportNo
+                    navigationController?.pushViewController(vc, animated: true)
                 }
             case .favorite:
                 break
