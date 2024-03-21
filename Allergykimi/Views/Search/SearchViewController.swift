@@ -88,7 +88,7 @@ final class SearchViewController: BaseViewController {
     
     @objc func tapFiliterButton() {
         print(#function)
-        let bottomSheetVC = BottomSheetViewController()
+        let bottomSheetVC = FilterBottomSheetViewController()
         if #available(iOS 15.0, *) {
             if let sheet = bottomSheetVC.sheetPresentationController {
                 sheet.detents = [.medium()]

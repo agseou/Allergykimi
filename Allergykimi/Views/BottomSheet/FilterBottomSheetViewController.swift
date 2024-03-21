@@ -11,7 +11,7 @@ protocol BottomSheetDelegate: AnyObject {
     func didDismissWithFilteredAllergies(_ allergies: [Allergy])
 }
 
-class BottomSheetViewController: BaseViewController {
+class FilterBottomSheetViewController: BaseViewController {
     
     weak var delegate: BottomSheetDelegate?
     
@@ -57,7 +57,7 @@ class BottomSheetViewController: BaseViewController {
     
 }
 
-extension BottomSheetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FilterBottomSheetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredALLAllergies.count
     }
