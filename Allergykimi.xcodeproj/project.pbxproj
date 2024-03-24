@@ -94,6 +94,7 @@
 		A01FC13F2BAFFB69009880FE /* ProductHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHeaderReusableView.swift; sourceTree = "<group>"; };
 		A01FC1412BB023F5009880FE /* ImageStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageManager.swift; sourceTree = "<group>"; };
 		A01FC1432BB03869009880FE /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		A01FC1452BB04F82009880FE /* Allergykimi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Allergykimi.entitlements; sourceTree = "<group>"; };
 		A020B2242BA16EC4002B4C89 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		A020B22B2BA17745002B4C89 /* RegisterAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAllergyViewController.swift; sourceTree = "<group>"; };
 		A020B22D2BA186ED002B4C89 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -277,6 +278,7 @@
 		A02FDC782B99835500865830 /* Allergykimi */ = {
 			isa = PBXGroup;
 			children = (
+				A01FC1452BB04F82009880FE /* Allergykimi.entitlements */,
 				A0C086272BADA2DB00058512 /* Resources */,
 				A02FDCAC2B99998800865830 /* App */,
 				A02FDCA32B9997D000865830 /* Base */,
@@ -816,6 +818,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Allergykimi/Allergykimi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 47VP7M3T34;
@@ -850,6 +853,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Allergykimi/Allergykimi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 47VP7M3T34;
