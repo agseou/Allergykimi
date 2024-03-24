@@ -36,6 +36,7 @@ final class SearchViewController: BaseNavBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboard()
         filiterAllergies = UserDefaultsManager.shared.myAllergies.compactMap { $0 }
         configureDataSource()
         updateSnapshot()
@@ -52,6 +53,12 @@ final class SearchViewController: BaseNavBarViewController {
         isHiddenNavLogoImage(true)
         isHiddenNavBarSettingsButton(true)
         setNavTitleText("검색")
+    }
+    
+    override func setupDelegate() {
+        super.setupDelegate()
+        
+        searchBar.delegate = self
     }
     
     // SnapShot
@@ -233,6 +240,13 @@ extension SearchViewController: UICollectionViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        viewModel.inputViewDidLoadTrigger.value = searchBar.text
     }
 }
 
