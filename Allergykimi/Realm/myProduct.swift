@@ -15,13 +15,15 @@ class recentProduct: Object {
     @Persisted var prductImgURL: String // 상품 이미지 url
     @Persisted var allergy: String // 상품 알러지
     @Persisted var prdkind: String // 상품 종류
+    @Persisted var dateAdded: Date
     
     convenience init(
         prdlstReportNo: String,
         prductName: String,
         prductImgURL: String,
         allergy: String,
-        prdkind: String
+        prdkind: String,
+        dateAdded: Date
     ) {
         self.init()
         self.prdlstReportNo = prdlstReportNo
@@ -29,22 +31,20 @@ class recentProduct: Object {
         self.prductImgURL = prductImgURL
         self.allergy = allergy
         self.prdkind = prdkind
+        self.dateAdded = dateAdded
     }
 }
 
 class favoriteProduct: Object {
     @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted  var prdlstReportNo: String // 상품 고유번호
+    @Persisted var prdlstReportNo: String // 상품 고유번호
     @Persisted var prductName: String // 상품 이름
-    @Persisted var prductImgURL: String // 상품 이미지 url
+    @Persisted var prductImgURL: String // 상품 이미지 URL
     @Persisted var allergy: String // 상품 알러지
     
-    convenience init(
-        prductName: String,
-        prductImgURL: String,
-        allergy: String
-    ) {
+    convenience init(prdlstReportNo: String, prductName: String, prductImgURL: String, allergy: String) {
         self.init()
+        self.prdlstReportNo = prdlstReportNo
         self.prductName = prductName
         self.prductImgURL = prductImgURL
         self.allergy = allergy

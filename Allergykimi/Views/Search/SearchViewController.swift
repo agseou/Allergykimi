@@ -8,14 +8,14 @@
 import UIKit
 import Kingfisher
 
-final class SearchViewController: BaseViewController {
+final class SearchViewController: BaseNavBarViewController {
     
     enum Section: Int, CaseIterable {
         case filiter
         case main
     }
     
-    let viewModel = SearchViewModel()
+    // MARK: - Components
     let searchBar = UISearchBar()
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -23,10 +23,16 @@ final class SearchViewController: BaseViewController {
         view.register(FiliterSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "FiliterSectionHeaderView")
         return view
     }()
+    
+    
+    // MARK: - Properties
+    let viewModel = SearchViewModel()
     var filiterAllergies: [Allergy] = []
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
     var list: [Item] = []
     
+    
+    // MARK: - Life Cycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +43,15 @@ final class SearchViewController: BaseViewController {
             self.list = data
             self.updateSnapshot()
         }
+    }
+    
+    // MARK: - Functions
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+        
+        isHiddenNavLogoImage(true)
+        isHiddenNavBarSettingsButton(true)
+        setNavTitleText("검색")
     }
     
     // SnapShot
@@ -102,9 +117,9 @@ final class SearchViewController: BaseViewController {
     
     
     override func configureHierarchy() {
-        navigationItem.titleView = searchBar
-        view.addSubview(collectionView)
+        super.configureHierarchy()
         
+        contentView.addSubviews([searchBar, collectionView])
     }
     
     @objc private func editSearchController() {
@@ -118,8 +133,15 @@ final class SearchViewController: BaseViewController {
     }
     
     override func setConstraints() {
+        super.setConstraints()
+        
+        searchBar.snp.makeConstraints {
+            $0.top.equalTo(contentView)
+            $0.horizontalEdges.equalTo(contentView).inset(10)
+        }
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(searchBar.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(contentView)
         }
     }
     
@@ -152,7 +174,7 @@ final class SearchViewController: BaseViewController {
                                                       heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .fractionalHeight(1.0 / 2.5))
+                                                       heightDimension: .fractionalHeight(1.0 / 2.3))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 layoutSection = NSCollectionLayoutSection(group: group)

@@ -18,10 +18,9 @@ class ProductTagCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
-        
         tagLabel.textAlignment = .center
         tagLabel.text = "test"
-        tagLabel.font = .systemFont(ofSize: 15)
+        tagLabel.font = AllergykimiFonts.TmoneyRoundWind.regular(size: 15)
     }
     
     override func setConstraints() {
@@ -29,6 +28,10 @@ class ProductTagCollectionViewCell: BaseCollectionViewCell {
             $0.verticalEdges.equalTo(contentView)
             $0.horizontalEdges.equalTo(contentView).inset(5)
         }
+    }
+    
+    func updateBasicUI(data: Allergy) {
+        tagLabel.text = data.name.first
     }
     
     func updateUI(data: Allergy, list: [Allergy]) {

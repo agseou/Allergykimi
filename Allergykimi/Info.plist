@@ -2,8 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TmoneyRoundWindExtraBold.otf</string>
+		<string>TmoneyRoundWindRegular.otf</string>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>위치를 받습니다.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>앱에서 카메라를 사용해 사진을 찍을 수 있습니다.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>앱에서 사진 라이브러리에 접근해 사진을 선택할 수 있습니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>위치를 받습니다.</string>
 	<key>NSAppTransportSecurity</key>

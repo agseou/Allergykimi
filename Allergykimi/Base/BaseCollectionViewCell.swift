@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+class BaseCollectionViewCell: UICollectionViewCell, BaseViewProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

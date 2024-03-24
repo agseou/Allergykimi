@@ -15,6 +15,7 @@ class UserDefaultsManager {
         case userState
         case nickName
         case myAllergies
+        case profileImagePath
     }
     
     let ud = UserDefaults.standard
@@ -39,5 +40,20 @@ class UserDefaultsManager {
             let data = try? JSONEncoder().encode(newValue)
             ud.set(data, forKey: UDKey.myAllergies.rawValue)
         }
+    }
+    
+    var profileImagePath: String? {
+        get { ud.string(forKey: UDKey.profileImagePath.rawValue) }
+        set { ud.setValue(newValue, forKey: UDKey.profileImagePath.rawValue) }
+    }
+}
+
+extension UserDefaultsManager {
+    
+    func resetAllSettings() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+        
+        ImageStorageManager.shared.deleteImage()
     }
 }

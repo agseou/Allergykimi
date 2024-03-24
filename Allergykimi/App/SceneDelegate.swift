@@ -14,9 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        let value = UserDefaultsManager.shared.userState
+        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: RegisterProfileViewController())
+        
+        if value == false { //Onboarding
+            window?.rootViewController = UINavigationController(rootViewController: RegisterProfileViewController())
+        } else {
+            window?.rootViewController = BaseTabBarController()
+        }
         window?.makeKeyAndVisible()
     }
 

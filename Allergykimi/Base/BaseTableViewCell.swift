@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class BaseTableViewCell: UITableViewCell {
+class BaseTableViewCell: UITableViewCell, BaseViewProtocol {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

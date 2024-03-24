@@ -9,11 +9,10 @@ import UIKit
 import NMapsMap
 import Toast
 
-class MapViewController: BaseViewController {
+class MapViewController: BaseNavBarViewController {
     
-    let viewModel = MapViewModel()
-    let locationManager = CLLocationManager()
-    let nMapView = NMFMapView()
+    // MARK: - Components
+    private let nMapView = NMFMapView()
     private let myLocationBtn = {
         var config = UIButton.Configuration.filled()
         config.title = "현재 위치로"
@@ -23,25 +22,37 @@ class MapViewController: BaseViewController {
         return btn
     }()
     
-    private var floatingView = PharmacyInfoFloatingView()
+    // MARK: - Properties
+    let viewModel = MapViewModel()
+    let locationManager = CLLocationManager()
+    private var floatingView = FloatingPharmacyInfoView()
     private var isFloatingViewPresented = false
-    
     var list: [PharmacyInfo] = []
     
+    // MARK: - Life Cycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setLocationData()
         checkDeviceLocationAuthorization()
     }
     
+    // MARK: - Functions
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+        
+        isHiddenNavBarBackButton(true)
+    }
+    
     override func configureHierarchy() {
-        view.addSubview(nMapView)
-        view.addSubview(myLocationBtn)
-        view.addSubview(floatingView)
+        super.configureHierarchy()
+        
+        contentView.addSubviews([nMapView, myLocationBtn, floatingView])
     }
     
     override func configureView() {
         super.configureView()
+        
         locationManager.delegate = self
         
         nMapView.touchDelegate = self
@@ -53,6 +64,10 @@ class MapViewController: BaseViewController {
         myLocationBtn.addTarget(self, action: #selector(tapMyLocationBtn), for: .touchUpInside)
         
         floatingView.isHidden = true
+        floatingView.layer.shadowRadius = 1
+        floatingView.layer.shadowColor = UIColor.gray.cgColor
+        floatingView.layer.shadowOpacity = 0.6
+        floatingView.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
     @objc private func tapMyLocationBtn() {
@@ -74,17 +89,19 @@ class MapViewController: BaseViewController {
     }
     
     override func setConstraints() {
+        super.setConstraints()
+        
         nMapView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.edges.equalTo(contentView)
         }
         myLocationBtn.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(30)
+            $0.top.equalTo(contentView).offset(10)
+            $0.horizontalEdges.equalTo(contentView).inset(30)
         }
         floatingView.snp.makeConstraints {
             $0.height.equalTo(100)
             $0.horizontalEdges.equalToSuperview().inset(30)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.bottom.equalTo(contentView).inset(20)
         }
     }
     

@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class BaseCollectionReusableView: UICollectionReusableView {
-        
+class BaseCollectionReusableView: UICollectionReusableView, BaseViewProtocol {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

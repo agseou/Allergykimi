@@ -8,11 +8,19 @@
 import UIKit
 import SnapKit
 
-class BaseView: UIView {
+
+protocol BaseViewProtocol {
+    func configureHierarchy() // - 계층
+    func configureView() // - 프로퍼티 ex) label
+    func setConstraints() // - 레이아웃
+}
+
+class BaseView: UIView, BaseViewProtocol {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupDelegate()
         configureHierarchy()
         configureView()
         setConstraints()
@@ -22,6 +30,7 @@ class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupDelegate() { }
     func configureHierarchy() { }
     func configureView() { }
     func setConstraints() { }
