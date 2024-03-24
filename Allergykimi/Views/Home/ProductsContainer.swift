@@ -56,8 +56,8 @@ class ProductsContainer: BaseView {
     }
     
     func updateLists() {
-        recentList = Array(repository.fetchItem(ofType: recentProduct.self))
-        favoriteList = Array(repository.fetchItem(ofType: favoriteProduct.self))
+        recentList = Array(repository.fetchItem(ofType: recentProduct.self)).reversed()
+        favoriteList = Array(repository.fetchItem(ofType: favoriteProduct.self)).reversed()
         productCollectionView.reloadData()
     }
     
