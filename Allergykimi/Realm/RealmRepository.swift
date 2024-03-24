@@ -10,7 +10,11 @@ import RealmSwift
 
 class RealmRepository {
     
-    private let realm = try! Realm()
+    private let realm: Realm
+    
+    init() throws {
+        self.realm = try Realm()
+    }
     
     func createItem<T: Object>(_ item: T) {
         do {
@@ -44,6 +48,7 @@ class RealmRepository {
     func isFavoriteProductExists(withPrdlstReportNo prdlstReportNo: String) -> Bool {
         return !realm.objects(favoriteProduct.self).filter("prdlstReportNo == %@", prdlstReportNo).isEmpty
     }
+    
     func addFavoriteProduct(_ product: favoriteProduct) {
         do {
             try realm.write {
@@ -56,9 +61,12 @@ class RealmRepository {
     
     func deleteFavoriteProduct(withPrdlstReportNo prdlstReportNo: String) {
         do {
-            if let productToDelete = realm.objects(favoriteProduct.self).filter("prdlstReportNo == %@", prdlstReportNo).first {
-                try realm.write {
-                    realm.delete(productToDelete)
+            let productsToDelete = realm.objects(favoriteProduct.self).filter("prdlstReportNo == %@", prdlstReportNo)
+            try realm.write {
+                productsToDelete.forEach { product in
+                    if !product.isInvalidated {
+                        realm.delete(product)
+                    }
                 }
             }
         } catch {

@@ -56,9 +56,12 @@ class ProductsContainer: BaseView {
     }
     
     func updateLists() {
-        recentList = Array(repository.fetchItem(ofType: recentProduct.self)).reversed()
-        favoriteList = Array(repository.fetchItem(ofType: favoriteProduct.self)).reversed()
-        productCollectionView.reloadData()
+        
+        recentList = Array(self.repository.fetchItem(ofType: recentProduct.self)).reversed()
+        favoriteList = Array(self.repository.fetchItem(ofType: favoriteProduct.self)).reversed()
+        DispatchQueue.main.async {
+            self.productCollectionView.reloadData()
+        }
     }
     
     func createLayout() -> UICollectionViewLayout {
