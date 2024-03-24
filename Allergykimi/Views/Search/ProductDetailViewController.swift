@@ -29,7 +29,13 @@ final class ProductDetailViewController: BaseNavBarViewController {
     
     
     // MARK: - Properties
-    let repository = RealmRepository()
+    lazy var repository: RealmRepository = {
+        do {
+            return try RealmRepository()
+        } catch {
+            fatalError("Failed to initialize the RealmRepository: \(error)")
+        }
+    }()
     let viewModel = ProductDetailViewModel()
     
     var productNo: String!
@@ -51,8 +57,8 @@ final class ProductDetailViewController: BaseNavBarViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         let data = recentProduct(prdlstReportNo: productData.prdlstReportNo, prductName: productData.prdlstNm, prductImgURL: productData.imgurl1, allergy:  productData.allergy, prdkind:  productData.prdkind, dateAdded: Date())
         repository.addOrUpdateRecentProduct(data)
     }

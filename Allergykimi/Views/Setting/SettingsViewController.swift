@@ -14,7 +14,13 @@ final class SettingsViewController: BaseNavBarViewController {
     private var dataSource: UITableViewDiffableDataSource<Section, String>!
     
     // MARK: - Properties
-    let realmRepository = RealmRepository()
+    lazy var repository: RealmRepository = {
+        do {
+            return try RealmRepository()
+        } catch {
+            fatalError("Failed to initialize the RealmRepository: \(error)")
+        }
+    }()
     let list = ["개인정보 처리 방침", "버전 정보", "처음부터 다시하기"]
     
     // MARK: - Life Cycle Functions
@@ -105,7 +111,7 @@ extension SettingsViewController: UITableViewDelegate {
             // 처음부터 다시하기 액션 실행
             showAlert(title: "처음부터 다시하시겠습니까?", message: "모든 데이터는 초기화됩니다.", buttonTitle: "확인") {
                 UserDefaultsManager.shared.userState = false
-                self.realmRepository.deleteAllRealmData()
+                self.repository.deleteAllRealmData()
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                    let sceneDelegate = windowScene.delegate as? SceneDelegate {
                     sceneDelegate.window?.rootViewController = UINavigationController(rootViewController: RegisterProfileViewController())

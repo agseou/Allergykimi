@@ -77,23 +77,25 @@ class RealmRepository {
     func addOrUpdateRecentProduct(_ newProduct: recentProduct) {
         do {
             try realm.write {
-                // 중복 제거
-                if let existingProduct = realm.objects(recentProduct.self).first(where: { $0.prdlstReportNo == newProduct.prdlstReportNo }) {
+                // 이미 저장된 상품이 있는지 확인
+                if let existingProductIndex = realm.objects(recentProduct.self).index(where: { $0.prdlstReportNo == newProduct.prdlstReportNo }) {
+                    let existingProduct = realm.objects(recentProduct.self)[existingProductIndex]
                     realm.delete(existingProduct)
                 }
-                
                 // 새 상품 추가
-                realm.add(newProduct, update: .modified)
-                
+                realm.add(newProduct)
+
                 // 상품 수 제한
                 let recentProducts = realm.objects(recentProduct.self).sorted(byKeyPath: "dateAdded", ascending: false)
                 if recentProducts.count > 10 {
-                    realm.delete(recentProducts.last!)
+                    // 10개 초과하는 상품 삭제
+                    let productsToDelete = recentProducts.suffix(from: 10)
+                    realm.delete(productsToDelete)
                 }
             }
-            print("Realm addOrUpdateRecentProduct")
+            print("Updated recent products list")
         } catch {
-            print(error)
+            print("Error updating recent products: \(error)")
         }
     }
     

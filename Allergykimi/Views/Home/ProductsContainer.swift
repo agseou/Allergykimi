@@ -15,7 +15,13 @@ class ProductsContainer: BaseView {
     // MARK: - Properties
     var tapProductCell: ((String) -> Void)?
     
-    let repository = RealmRepository()
+    lazy var repository: RealmRepository = {
+        do {
+            return try RealmRepository()
+        } catch {
+            fatalError("Failed to initialize the RealmRepository: \(error)")
+        }
+    }()
     var recentList: [recentProduct] = []
     var favoriteList: [favoriteProduct] = []
     
