@@ -15,18 +15,7 @@ class HomeViewController: BaseNavBarViewController {
     private let productsContainer = ProductsContainer()
     private let bannerContainer = BannerContainer()
     
-    // MARK: - Properties
-    
     // MARK: - Life Cycle Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        searchBarContainer.onSearchBarButtonTapped = { [weak self] in
-            let vc = SearchViewController()
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -42,22 +31,25 @@ class HomeViewController: BaseNavBarViewController {
         setNavLogoImageColor(.white)
     }
     
-    override func configureHierarchy() {
-        super.configureHierarchy()
+    override func setupBind() {
+        super.setupBind()
         
-        contentView.addSubview(scrollView)
-        scrollView.addSubviews([searchBarContainer, productsContainer, bannerContainer])
-    }
-    
-    override func configureView() {
-        super.configureView()
-        
+        searchBarContainer.onSearchBarButtonTapped = { [weak self] in
+            let vc = SearchViewController()
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
         productsContainer.tapProductCell = { [weak self] data in
             let vc = ProductDetailViewController()
             vc.productNo = data
             self?.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    override func configureHierarchy() {
+        super.configureHierarchy()
         
+        contentView.addSubview(scrollView)
+        scrollView.addSubviews([searchBarContainer, productsContainer, bannerContainer])
     }
     
     override func setConstraints() {
@@ -71,7 +63,7 @@ class HomeViewController: BaseNavBarViewController {
             $0.height.equalTo(160)
         }
         productsContainer.snp.makeConstraints {
-            $0.top.equalTo(searchBarContainer.snp.bottom).offset(40)
+            $0.top.equalTo(searchBarContainer.snp.bottom).offset(10)
             $0.height.equalTo(400)
             $0.horizontalEdges.width.equalTo(scrollView)
         }

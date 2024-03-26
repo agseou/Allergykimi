@@ -9,9 +9,11 @@ import UIKit
 
 class TagCollectionViewCell: BaseCollectionViewCell {
     
+    // MARK: - Components
     let iconLabel = UILabel()
     let tagLabel = UILabel()
     
+    // MARK: - Functions
     override func configureHierarchy() {
         contentView.addSubviews([iconLabel, tagLabel])
     }

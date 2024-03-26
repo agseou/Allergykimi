@@ -19,9 +19,9 @@ final class RegisterAllergyViewController: BaseNavBarViewController {
         view.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "TagCollectionViewCell")
         return view
     }()
-    private let nextBtn = wideButton()
-    private let nextBtn2 = wideButton()
-    private let prevBtn = wideButton()
+    private let nextBtn = WideButton(type: .next)
+    private let noneBtn = WideButton(type: .none)
+    private let prevBtn = WideButton(type: .prev)
     
     // MARK: - Properties
     private let viewModel: ProfileRegistrationViewModel
@@ -53,7 +53,7 @@ final class RegisterAllergyViewController: BaseNavBarViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        contentView.addSubviews([contentLabel, infoLabel, collectionView, nextBtn, nextBtn2, prevBtn])
+        contentView.addSubviews([contentLabel, infoLabel, collectionView, nextBtn, noneBtn, prevBtn])
     }
     
     override func configureView() {
@@ -67,12 +67,8 @@ final class RegisterAllergyViewController: BaseNavBarViewController {
         
         nextBtn.addTarget(self, action: #selector(tapNextBtn), for: .touchUpInside)
         
-        nextBtn2.configuration?.title = "없음"
-        nextBtn2.configuration?.baseBackgroundColor = .complementary
-        nextBtn2.addTarget(self, action: #selector(tapNextBtn2), for: .touchUpInside)
+        noneBtn.addTarget(self, action: #selector(tapNextBtn2), for: .touchUpInside)
         
-        prevBtn.configuration?.title = "이전"
-        prevBtn.configuration?.baseBackgroundColor = .gray
         prevBtn.addTarget(self, action: #selector(tapPrevBtn), for: .touchUpInside)
     }
     
@@ -96,13 +92,13 @@ final class RegisterAllergyViewController: BaseNavBarViewController {
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(contentView).inset(20)
         }
-        nextBtn2.snp.makeConstraints {
+        noneBtn.snp.makeConstraints {
             $0.top.equalTo(nextBtn.snp.bottom).offset(8)
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(contentView).inset(20)
         }
         prevBtn.snp.makeConstraints {
-            $0.top.equalTo(nextBtn2.snp.bottom).offset(8)
+            $0.top.equalTo(noneBtn.snp.bottom).offset(8)
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(contentView).inset(20)
             $0.bottom.equalTo(contentView).inset(20)

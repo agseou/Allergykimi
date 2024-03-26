@@ -80,6 +80,7 @@
 		A0C086352BAE82DE00058512 /* ProfileRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C086342BAE82DE00058512 /* ProfileRegistrationViewModel.swift */; };
 		A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF695C2BA7348000FB551B /* MapViewController.swift */; };
 		A0DF69622BA7C23C00FB551B /* ProductTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */; };
+		A0FB4E482BB174A6003BC9E0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FB4E472BB174A6003BC9E0 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,7 @@
 		A0C086342BAE82DE00058512 /* ProfileRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegistrationViewModel.swift; sourceTree = "<group>"; };
 		A0DF695C2BA7348000FB551B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		A0FB4E472BB174A6003BC9E0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		AA1900F478F7EED25EA07585 /* Pods-Allergykimi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allergykimi.debug.xcconfig"; path = "Target Support Files/Pods-Allergykimi/Pods-Allergykimi.debug.xcconfig"; sourceTree = "<group>"; };
 		F96F26FC60191D038F353F7B /* Pods_Allergykimi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allergykimi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -192,16 +194,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A01FC1302BAF33CC009880FE /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A01FC1312BAF33E2009880FE /* ProductCollectionViewCell.swift */,
-				A01FC1432BB03869009880FE /* EmptyCollectionViewCell.swift */,
-				A01FC13F2BAFFB69009880FE /* ProductHeaderReusableView.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		A01FC13E2BAFF439009880FE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +215,8 @@
 		A020B2272BA174E5002B4C89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A06A18952BA91AE400D52A5C /* Components */,
+				A0FB4E462BB17472003BC9E0 /* Add */,
+				A06A18952BA91AE400D52A5C /* ReuseComponents */,
 				A06A188A2BA89F9B00D52A5C /* BottomSheet */,
 				A020B22A2BA176F2002B4C89 /* Onboarding */,
 				A02FDCAD2B9999C300865830 /* Home */,
@@ -342,7 +335,6 @@
 		A02FDCAD2B9999C300865830 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A01FC1302BAF33CC009880FE /* Cell */,
 				A093606E2B9EECF400BF2E62 /* HomeViewController.swift */,
 				A01FC12C2BAF2488009880FE /* ProductsContainer.swift */,
 				A0C086312BADD4BA00058512 /* SearchBarContainer.swift */,
@@ -363,12 +355,9 @@
 		A04D75A82B9F59F400F660A7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				A08D57F22BA01F2100824C4F /* Cell */,
 				A04D75A92B9F5A0D00F660A7 /* SearchViewController.swift */,
-				A06A188D2BA8AAAA00D52A5C /* FiliterSectionHeaderView.swift */,
 				A08D57F02BA014AB00824C4F /* SearchViewModel.swift */,
 				A08D57F52BA04EF000824C4F /* ProductDetailViewController.swift */,
-				A06A18BB2BAB091200D52A5C /* ProductDetailViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -381,13 +370,14 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
-		A06A18952BA91AE400D52A5C /* Components */ = {
+		A06A18952BA91AE400D52A5C /* ReuseComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A06D1B832BB15D8000FCD917 /* Cell */,
 				A06A18962BA91B1700D52A5C /* wideButton.swift */,
 				A01FC1282BAEC802009880FE /* ProfileView.swift */,
 			);
-			path = Components;
+			path = ReuseComponents;
 			sourceTree = "<group>";
 		};
 		A06A18A82BAA6CFA00D52A5C /* Realm */ = {
@@ -407,12 +397,11 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
-		A08D57F22BA01F2100824C4F /* Cell */ = {
+		A06D1B832BB15D8000FCD917 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
-				A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */,
-				A06A18882BA8719800D52A5C /* FiliterTagCollectionViewCell.swift */,
+				A0FB4E452BB15DF2003BC9E0 /* Search */,
+				A0FB4E442BB15DE4003BC9E0 /* Home */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -458,6 +447,8 @@
 		A0C086332BAE821E00058512 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A06A18BB2BAB091200D52A5C /* ProductDetailViewModel.swift */,
+				A06A18C02BAB8E9D00D52A5C /* MapViewModel.swift */,
 				A0C086342BAE82DE00058512 /* ProfileRegistrationViewModel.swift */,
 			);
 			path = ViewModels;
@@ -468,9 +459,37 @@
 			children = (
 				A049B45A2BAC5CDC009A1044 /* FloatingPharmacyInfoView.swift */,
 				A0DF695C2BA7348000FB551B /* MapViewController.swift */,
-				A06A18C02BAB8E9D00D52A5C /* MapViewModel.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		A0FB4E442BB15DE4003BC9E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A01FC1312BAF33E2009880FE /* ProductCollectionViewCell.swift */,
+				A01FC1432BB03869009880FE /* EmptyCollectionViewCell.swift */,
+				A01FC13F2BAFFB69009880FE /* ProductHeaderReusableView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A0FB4E452BB15DF2003BC9E0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A06A188D2BA8AAAA00D52A5C /* FiliterSectionHeaderView.swift */,
+				A08D57F32BA01F3600824C4F /* ProductsCollectionViewCell.swift */,
+				A0DF69612BA7C23C00FB551B /* ProductTagCollectionViewCell.swift */,
+				A06A18882BA8719800D52A5C /* FiliterTagCollectionViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A0FB4E462BB17472003BC9E0 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				A0FB4E472BB174A6003BC9E0 /* AddViewController.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -638,6 +657,7 @@
 			files = (
 				A049B45B2BAC5CDC009A1044 /* FloatingPharmacyInfoView.swift in Sources */,
 				A0DF695D2BA7348100FB551B /* MapViewController.swift in Sources */,
+				A0FB4E482BB174A6003BC9E0 /* AddViewController.swift in Sources */,
 				A06A188C2BA89FDE00D52A5C /* FilterBottomSheetViewController.swift in Sources */,
 				A02FDCB62B99A01100865830 /* Products.swift in Sources */,
 				A02FDCB42B999DD100865830 /* APIManager.swift in Sources */,

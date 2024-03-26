@@ -9,12 +9,7 @@ import UIKit
 import Kingfisher
 
 final class SearchViewController: BaseNavBarViewController {
-    
-    enum Section: Int, CaseIterable {
-        case filiter
-        case main
-    }
-    
+ 
     // MARK: - Components
     let searchBar = UISearchBar()
     private lazy var collectionView = {
@@ -197,6 +192,12 @@ final class SearchViewController: BaseNavBarViewController {
 
 extension SearchViewController {
     
+    enum Section: Int, CaseIterable {
+        case filiter
+        case main
+    }
+    
+    
     private func filiterCellRegistertaion() -> UICollectionView.CellRegistration<FiliterTagCollectionViewCell, Allergy> {
         
         UICollectionView.CellRegistration<FiliterTagCollectionViewCell, Allergy> { cell, indexPath, item in
@@ -226,6 +227,7 @@ extension SearchViewController {
     
 }
 
+// MARK: - CollectionView Delegate
 extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -243,6 +245,7 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - SearchBar Delegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -250,6 +253,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - Receive BottomSheet Data Delegate
 extension SearchViewController: BottomSheetDelegate {
     func didDismissWithFilteredAllergies(_ allergies: [Allergy]) {
         filiterAllergies = allergies

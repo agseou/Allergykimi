@@ -68,6 +68,7 @@ final class SettingsViewController: BaseNavBarViewController {
     }
 }
 
+// MARK: - DataSource and ShanpShot
 extension SettingsViewController {
     enum Section {
         case main

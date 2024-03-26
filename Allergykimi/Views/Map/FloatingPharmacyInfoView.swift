@@ -20,6 +20,7 @@ class FloatingPharmacyInfoView: BaseView {
     // MARK: - Properties
     let pharmacy: [PharmacyInfo] = []
     var phoneNumber: String!
+    var callUnavailable: (() -> Void)? //전화 불가능을 전하는 클로저 함수
     
     // MARK: - Functions
     override func configureHierarchy() {
@@ -61,15 +62,9 @@ class FloatingPharmacyInfoView: BaseView {
                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
             } else {
                 print("이 장치에서는 전화 기능을 사용할 수 없습니다.")
+                callUnavailable?()
             }
         }
-    }
-    
-    func updateView(data: PharmacyInfo) {
-        phoneNumber = data.dutyTel1
-        pharmacyName.text = data.dutyName
-        pharmacyTel.configuration?.title = data.dutyTel1
-        pharmacyAddr.text = data.dutyAddr
     }
     
     override func setConstraints() {
@@ -78,6 +73,13 @@ class FloatingPharmacyInfoView: BaseView {
             $0.verticalEdges.equalToSuperview().inset(4)
             $0.horizontalEdges.equalToSuperview().inset(8)
         }
+    }
+    
+    func updateView(data: PharmacyInfo) {
+        phoneNumber = data.dutyTel1
+        pharmacyName.text = data.dutyName
+        pharmacyTel.configuration?.title = data.dutyTel1
+        pharmacyAddr.text = data.dutyAddr
     }
     
 }

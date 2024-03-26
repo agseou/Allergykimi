@@ -11,7 +11,21 @@ class SearchBarContainer: BaseView {
     
     // MARK: - Components
     private let title = UILabel()
-    private let searchBarButton = UIButton()
+    private let searchBarButton = {
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.baseForegroundColor = .gray
+        config.baseBackgroundColor = .white
+        config.image = UIImage(systemName: "magnifyingglass")
+        config.imagePlacement = .leading
+        config.title = "식품을 검색하세요!"
+        let button = UIButton()
+        button.configuration = config
+        DispatchQueue.main.async {
+            button.layer.cornerRadius = button.bounds.height/2
+        }
+        return button
+    }()
     
     // MARK: - Properties
     var onSearchBarButtonTapped: (() -> Void)?
@@ -32,17 +46,7 @@ class SearchBarContainer: BaseView {
         title.textColor = .white
         title.font = AllergykimiFonts.TmoneyRoundWind.extraBold(size: 20)
         
-        var config = UIButton.Configuration.filled()
-        config.cornerStyle = .capsule
-        config.baseForegroundColor = .gray
-        config.baseBackgroundColor = .white
-        config.image = UIImage(systemName: "magnifyingglass")
-        config.imagePlacement = .leading
-        config.title = "식품을 검색하세요!"
-        searchBarButton.configuration = config
-        DispatchQueue.main.async {
-            self.searchBarButton.layer.cornerRadius = self.searchBarButton.bounds.height/2
-        }
+        
         searchBarButton.addTarget(self, action: #selector(tapSearchBarButton), for: .touchUpInside)
     }
     

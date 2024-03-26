@@ -103,11 +103,14 @@ class ProductsContainer: BaseView {
     
 }
 
+// MARK: - CollectionViewDelegate
 extension ProductsContainer: UICollectionViewDelegate, UICollectionViewDataSource {
+    // numberOfSections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
     }
     
+    // numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -120,6 +123,7 @@ extension ProductsContainer: UICollectionViewDelegate, UICollectionViewDataSourc
         
     }
     
+    // cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (indexPath.section == 0 && recentList.isEmpty) || (indexPath.section == 1 && favoriteList.isEmpty) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCollectionViewCell", for: indexPath) as! EmptyCollectionViewCell
@@ -136,11 +140,13 @@ extension ProductsContainer: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     
+    // Header Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 50)
     }
     
     
+    // Header configuration
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView()}
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! ProductHeaderReusableView
@@ -154,6 +160,7 @@ extension ProductsContainer: UICollectionViewDelegate, UICollectionViewDataSourc
         return header
     }
     
+    // didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let selectedProduct = recentList[indexPath.item]

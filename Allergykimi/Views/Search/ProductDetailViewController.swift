@@ -166,6 +166,7 @@ final class ProductDetailViewController: BaseNavBarViewController {
     }
 }
 
+// MARK: - CollectionView Delegate
 extension ProductDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allergyList.count

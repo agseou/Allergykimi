@@ -16,7 +16,7 @@ final class RegisterProfileViewController: BaseNavBarViewController {
     private let nickNameTextfield = UITextField()
     private let nickNameTextfieldUnderLine = UIView()
     private let validNicknameLabel = UILabel()
-    private let nextBtn = wideButton()
+    private let nextBtn = WideButton(type: .next)
     
     // MARK: - Properties
     private let viewModel = ProfileRegistrationViewModel()
@@ -68,18 +68,22 @@ final class RegisterProfileViewController: BaseNavBarViewController {
     
     override func configureView() {
         super.configureView()
-        
+        // contentLabel
         contentLabel.text = "프로필을 등록해주세요."
         contentLabel.font = AllergykimiFonts.TmoneyRoundWind.regular(size: 24)
         
+        // profileImage
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileImageButtonTapped))
         profileImage.addGestureRecognizer(tapGesture)
         
+        // nickNameTextfieldUnderLine
         nickNameTextfieldUnderLine.backgroundColor = .gray
         
+        // nickNameTextfield
         nickNameTextfield.placeholder = "닉네임을 입력하세요!"
         nickNameTextfield.addTarget(self, action: #selector(changeNickNameTextfield), for: .editingChanged)
         
+        // nickNameTextfield
         nextBtn.addTarget(self, action: #selector(tapNextBtn), for: .touchUpInside)
     }
     
@@ -94,6 +98,7 @@ final class RegisterProfileViewController: BaseNavBarViewController {
     
     override func setConstraints() {
         super.setConstraints()
+        
         contentLabel.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(30)
             $0.top.equalToSuperview().offset(10)
@@ -186,20 +191,17 @@ extension RegisterProfileViewController: UIImagePickerControllerDelegate, UINavi
         present(imagePicker, animated: true)
     }
     
-    // UIImagePickerControllerDelegate 메서드
+    // UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[.originalImage] as? UIImage {
             // 선택된 이미지를 프로필 이미지 버튼의 배경으로 설정
             profileImage.profileImage.image = chosenImage
-            
-            // 이미지를 디스크에 저장
             ImageStorageManager.shared.saveImage(image: chosenImage)
         }
         dismiss(animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        // 사용자가 취소한 경우, 여기서 처리
         dismiss(animated: true)
     }
 }

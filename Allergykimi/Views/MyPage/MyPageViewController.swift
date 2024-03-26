@@ -22,8 +22,15 @@ final class MyPageViewController: BaseNavBarViewController {
         isHiddenNavBarBackButton(true)
     }
     
+    override func setupBind() {
+        super.setupBind()
+        
+//        profileView.onEditButtonTapped = { [weak self] in
+//            let vc = RegisterProfileViewController()
+//            self?.navigationController?.pushViewController(vc, animated: true)
+//        }
+    }
     
-    // MARK: - Functions
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -34,10 +41,6 @@ final class MyPageViewController: BaseNavBarViewController {
     
     override func configureView() {
         super.configureView()
-//        profileView.onEditButtonTapped = { [weak self] in
-//            let editPageVC = RegisterProfileViewController()
-//            self?.navigationController?.pushViewController(editPageVC, animated: true)
-//        }
         
         subView.backgroundColor = .systemGray6
         

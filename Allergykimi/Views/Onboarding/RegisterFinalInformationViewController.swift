@@ -10,10 +10,10 @@ import UIKit
 class RegisterFinalInformationViewController: BaseNavBarViewController {
     
     // MARK: - Components
-    private let nextBtn = wideButton()
+    private let completeBtn = WideButton(type: .complete)
     private let nickNameLabel = UILabel()
     private let myAllergyLabel = UILabel()
-    private let prevBtn = wideButton()
+    private let prevBtn = WideButton(type: .prev)
     
     // MARK: - Properties
     private let viewModel: ProfileRegistrationViewModel
@@ -38,6 +38,7 @@ class RegisterFinalInformationViewController: BaseNavBarViewController {
     
     override func setupBind() {
         super.setupBind()
+        
         viewModel.nickNameText.bind { [weak self] text in
             self?.nickNameLabel.text = text
         }
@@ -49,8 +50,9 @@ class RegisterFinalInformationViewController: BaseNavBarViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        contentView.addSubviews([nickNameLabel, myAllergyLabel, nextBtn, prevBtn])
+        contentView.addSubviews([nickNameLabel, myAllergyLabel, completeBtn, prevBtn])
     }
+    
     override func configureView() {
         super.configureView()
         
@@ -70,11 +72,8 @@ class RegisterFinalInformationViewController: BaseNavBarViewController {
         myAllergyLabel.textAlignment = .center
         myAllergyLabel.lineBreakMode = .byWordWrapping
         
-        nextBtn.configuration?.title = "완료"
-        nextBtn.addTarget(self, action: #selector(tapNextBtn), for: .touchUpInside)
+        completeBtn.addTarget(self, action: #selector(tapNextBtn), for: .touchUpInside)
         
-        prevBtn.configuration?.title = "이전"
-        prevBtn.configuration?.baseBackgroundColor = .gray
         prevBtn.addTarget(self, action: #selector(tapPrevBtn), for: .touchUpInside)
     }
     
@@ -89,12 +88,12 @@ class RegisterFinalInformationViewController: BaseNavBarViewController {
             $0.top.equalTo(nickNameLabel.snp.bottom).offset(20)
             $0.horizontalEdges.equalTo(contentView).inset(20)
         }
-        nextBtn.snp.makeConstraints {
+        completeBtn.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(contentView).inset(20)
         }
         prevBtn.snp.makeConstraints {
-            $0.top.equalTo(nextBtn.snp.bottom).offset(8)
+            $0.top.equalTo(completeBtn.snp.bottom).offset(8)
             $0.height.equalTo(50)
             $0.horizontalEdges.equalTo(contentView).inset(20)
             $0.bottom.equalTo(contentView).inset(20)
@@ -104,7 +103,7 @@ class RegisterFinalInformationViewController: BaseNavBarViewController {
     
     @objc func tapNextBtn() {
         UserDefaultsManager.shared.myAllergies = viewModel.confirmedAllergiesList.value
-        UserDefaultsManager.shared.nickName = viewModel.nickNameText.value ?? "Kimi"
+        UserDefaultsManager.shared.nickName = "\(viewModel.nickNameText.value ?? "Kimi")님"
         UserDefaultsManager.shared.userState = true
         let vc = BaseTabBarController()
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

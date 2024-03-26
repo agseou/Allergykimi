@@ -9,7 +9,6 @@ import UIKit
 
 class BannerContainer: BaseView {
     
-    
     // MARK: - Components
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     
@@ -21,7 +20,8 @@ class BannerContainer: BaseView {
         let image: UIImage
         let url: String
     }
-    let bannerdata = [BannerBox(title: "표기대상 알레르기 유발 물질을 알아보세요", 
+    
+    let bannerdata = [BannerBox(title: "표기대상 알레르기 유발 물질을 알아보세요",
                                 subTitle: "",
                                 image: UIImage(resource: .noCrustaceans),
                                 url: "https://www.foodsafetykorea.go.kr/portal/board/boardDetail.do?menu_no=3120&menu_grp=MENU_NEW01&bbs_no=bbs001&ntctxt_no=1091412"),
@@ -67,10 +67,10 @@ class BannerContainer: BaseView {
     
 }
 
+// MARK: - CollectionView Delegate
 extension BannerContainer: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // 데이터 배열 크기의 100배를 반환하여 인피니트 스크롤 효과를 만듭니다.
         return bannerdata.count * 100
     }
     
@@ -92,8 +92,6 @@ extension BannerContainer: UICollectionViewDelegate, UICollectionViewDataSource 
         if currentPosition < contentWidth / 4 || currentPosition > contentWidth / 4 * 3 {
             let newPosition = contentWidth / 2
             scrollView.setContentOffset(CGPoint(x: newPosition, y: 0), animated: false)
-            // 여기서 newPosition은 스크롤 위치를 중간 지점으로 조정하는 데 사용됩니다.
-            // 이는 사용자가 무한 스크롤 효과를 체감하게 하는 핵심입니다.
         }
     }
 }

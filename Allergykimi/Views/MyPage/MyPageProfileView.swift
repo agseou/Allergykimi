@@ -33,7 +33,7 @@ final class MyPageProfileView: BaseView {
     }
     
     override func configureHierarchy() {
-        addSubviews([ myProfileImage, nameLabel, myAllergyLabel, collectionView])
+        addSubviews([editButton, myProfileImage, nameLabel, myAllergyLabel, collectionView])
     }
     
     override func configureView() {
@@ -42,11 +42,13 @@ final class MyPageProfileView: BaseView {
         }
         
         backgroundColor = .systemGray6
+    
+        editButton.setTitle("편집", for: .normal)
+        editButton.setTitleColor(.accent, for: .normal)
+        editButton.titleLabel?.font = AllergykimiFonts.TmoneyRoundWind.regular(size: 17)
+        editButton.addTarget(self, action: #selector(tapEditButton), for: .touchUpInside)
         
-//        editButton.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
-//        editButton.addTarget(self, action: #selector(tapEditButton), for: .touchUpInside)
-        
-        nameLabel.font = AllergykimiFonts.TmoneyRoundWind.regular(size: 17)
+        nameLabel.font = AllergykimiFonts.TmoneyRoundWind.extraBold(size: 16)
         nameLabel.text = UserDefaultsManager.shared.nickName
         
         myAllergyLabel.text = "나의 알러지 정보"
@@ -56,11 +58,10 @@ final class MyPageProfileView: BaseView {
     }
     
     override func setConstraints() {
-//        editButton.snp.makeConstraints {
-//            $0.top.equalTo(self).offset(4)
-//            $0.trailing.equalTo(self).inset(4)
-//            $0.size.equalTo(40)
-//        }
+        editButton.snp.makeConstraints {
+            $0.top.equalTo(self).offset(4)
+            $0.trailing.equalTo(self).inset(8)
+        }
         myProfileImage.snp.makeConstraints {
             $0.leading.equalTo(self).offset(15)
             $0.size.equalTo(100)

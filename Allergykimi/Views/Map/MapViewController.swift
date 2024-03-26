@@ -58,7 +58,7 @@ class MapViewController: BaseNavBarViewController {
         nMapView.touchDelegate = self
         nMapView.allowsZooming = true
         nMapView.isNightModeEnabled = false
-        nMapView.zoomLevel = 13
+        nMapView.zoomLevel = 15
         nMapView.positionMode = .normal
         
         myLocationBtn.addTarget(self, action: #selector(tapMyLocationBtn), for: .touchUpInside)
@@ -68,6 +68,9 @@ class MapViewController: BaseNavBarViewController {
         floatingView.layer.shadowColor = UIColor.gray.cgColor
         floatingView.layer.shadowOpacity = 0.6
         floatingView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        floatingView.callUnavailable = {
+            self.view.makeToast("전화 기능을 이용할 수 없습니다.")
+        }
     }
     
     @objc private func tapMyLocationBtn() {
@@ -252,5 +255,4 @@ extension MapViewController: NMFMapViewTouchDelegate {
         // 지도의 마커가 아닌 부분을 탭했을 때
         hideFloatingView()
     }
-    
 }

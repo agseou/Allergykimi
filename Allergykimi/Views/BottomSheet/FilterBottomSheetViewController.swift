@@ -13,8 +13,7 @@ protocol BottomSheetDelegate: AnyObject {
 
 class FilterBottomSheetViewController: BaseViewController {
     
-    weak var delegate: BottomSheetDelegate?
-    
+    // MARK: - Components
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         view.delegate = self
@@ -23,6 +22,9 @@ class FilterBottomSheetViewController: BaseViewController {
         view.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: "TagCollectionViewCell")
         return view
     }()
+    
+    // MARK: - Properties
+    weak var delegate: BottomSheetDelegate?
     var filteredALLAllergies: [Allergy] {
         Allergy.allCases.filter { $0 != .none && $0 != .unknowned }
     }
@@ -30,15 +32,17 @@ class FilterBottomSheetViewController: BaseViewController {
         didSet { collectionView.reloadData() }
     }
     
-    override func configureHierarchy() {
-        view.addSubview(collectionView)
-    }
-    
+    // MARK: - Life Cycle Functions
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         delegate?.didDismissWithFilteredAllergies(filiterAllergies)
     }
     
+    
+    // MARK: - Functions
+    override func configureHierarchy() {
+        view.addSubview(collectionView)
+    }
     override func setConstraints() {
         collectionView.snp.makeConstraints {
             $0.verticalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
@@ -57,11 +61,15 @@ class FilterBottomSheetViewController: BaseViewController {
     
 }
 
+// MARK: - CollectionView Delegate
 extension FilterBottomSheetViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredALLAllergies.count
     }
     
+    // cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as! TagCollectionViewCell
         
@@ -71,6 +79,7 @@ extension FilterBottomSheetViewController: UICollectionViewDelegate, UICollectio
         return cell
     }
     
+    // didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = filteredALLAllergies[indexPath.row]
         if filiterAllergies.contains(data) {
