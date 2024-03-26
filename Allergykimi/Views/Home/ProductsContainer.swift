@@ -162,10 +162,10 @@ extension ProductsContainer: UICollectionViewDelegate, UICollectionViewDataSourc
     
     // didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && !recentList.isEmpty {
             let selectedProduct = recentList[indexPath.item]
             tapProductCell?(selectedProduct.prdlstReportNo)
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == 1 && !favoriteList.isEmpty {
             let selectedProduct = favoriteList[indexPath.item]
             tapProductCell?(selectedProduct.prdlstReportNo)
         }
