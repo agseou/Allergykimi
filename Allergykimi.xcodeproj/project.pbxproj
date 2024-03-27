@@ -868,11 +868,16 @@
 				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Allergykimi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사용자의 카메라를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자의 앨범을 사용하도록 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,11 +908,16 @@
 				DEVELOPMENT_TEAM = 47VP7M3T34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Allergykimi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사용자의 카메라를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 사용하도록 허용하시겠습니까?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사용자의 앨범을 사용하도록 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
