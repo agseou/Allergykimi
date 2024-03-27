@@ -33,7 +33,7 @@ final class MyPageProfileView: BaseView {
     }
     
     override func configureHierarchy() {
-        addSubviews([editButton, myProfileImage, nameLabel, myAllergyLabel, collectionView])
+        addSubviews([ myProfileImage, nameLabel, myAllergyLabel, collectionView])
     }
     
     override func configureView() {
@@ -58,10 +58,10 @@ final class MyPageProfileView: BaseView {
     }
     
     override func setConstraints() {
-        editButton.snp.makeConstraints {
-            $0.top.equalTo(self).offset(4)
-            $0.trailing.equalTo(self).inset(8)
-        }
+//        editButton.snp.makeConstraints {
+//            $0.top.equalTo(self).offset(4)
+//            $0.trailing.equalTo(self).inset(8)
+//        }
         myProfileImage.snp.makeConstraints {
             $0.leading.equalTo(self).offset(15)
             $0.size.equalTo(100)
